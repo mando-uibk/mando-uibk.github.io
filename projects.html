@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects · Armando Holzknecht</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap wide">
+      <a class="site-name" href="index.html">Armando Holzknecht</a>
+      <nav class="site-nav">
+        <a href="output.html">Output</a>
+        <a href="cv.html">CV</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap wide">
+      <h1>Projects</h1>
+      <p class="lede">All my research projects and where they currently stand — from idea to publication.</p>
+      <div class="filters" id="project-filters" role="group" aria-label="Filter by status"></div>
+
+      <table class="ptable">
+        <thead>
+          <tr>
+            <th>Project</th>
+            <th>Year</th>
+            <th>Status</th>
+            <th>Outlet</th>
+            <th>Links</th>
+          </tr>
+        </thead>
+        <tbody id="projects-body"></tbody>
+      </table>
+
+
+      <h2>Contributions to crowd-science projects (non core-team member)</h2>
+      <table class="ptable">
+        <thead>
+          <tr>
+            <th>Project</th>
+            <th>Year</th>
+            <th>Outlet / stage</th>
+            <th>Links</th>
+          </tr>
+        </thead>
+        <tbody id="contrib-body"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap wide">
+      <span>© <span id="year">2026</span> Armando Holzknecht</span>
+      <span>Universität Innsbruck · Universitätsstraße 15 · 6020 Innsbruck</span>
+    </div>
+  </footer>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/main.js"></script>
+</body>
+</html>

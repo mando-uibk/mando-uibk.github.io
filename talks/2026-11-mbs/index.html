@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From carbon pricing support to AI in meta-science</title>
+<meta name="author" content="Armando Holzknecht">
+<meta name="description" content="Research seminar slides, MBS School of Business, 2026. Prepared with the help of AI; speaker notes are AI-generated. Licensed under CC BY 4.0.">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<link rel="stylesheet" href="lib/reset.css">
+<link rel="stylesheet" href="lib/reveal.css">
+<link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+  <!-- ============ 1 · TITLE ============ -->
+  <section data-no-chrome data-fig="title-deco">
+    <div class="title-slide">
+      <div class="title-deco figmount"></div>
+      <div class="t-logo"><img src="assets/logos/uibk.svg" alt="University of Innsbruck"></div>
+      <div class="title-main">
+        <h1>From carbon pricing support to AI in meta-science</h1>
+        <div class="title-rule"></div>
+        <div class="title-sub">Research seminar · MBS School of Business</div>
+        <div class="title-author">Armando Holzknecht</div>
+        <div class="title-inst">Department of Banking and Finance, University of Innsbruck</div>
+      </div>
+    </div>
+    <aside class="notes">
+      Thank you for the invitation. I will present three projects: a field study on support for carbon pricing in Austria
+      during the roll-out and removal of a visible carbon dividend, a pre-registered study that treats 63 large language
+      models as synthetic populations and quantifies between-LLM heterogeneity in effect sizes, and the pre-registered
+      ESS replication project.
+    </aside>
+  </section>
+
+  <!-- ============ 2 · IN THE LAST EPISODE (ManyDesignsCarbon, Figure 3) ============ -->
+  <section data-fig="mdc-forest">
+    <div class="frame">
+      <div class="frametitle"><h2>In the last episode</h2><span class="ft-cite">Armando Holzknecht, Rene Schwaiger, Juergen Huber, Esther Blanco, Michael Kirchler (2026), <i>Nature Human Behaviour</i></span><div class="ftprog"><span></span></div></div>
+      <div class="framebody" style="padding:6px 22px 30px">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      Holzknecht, Schwaiger, Huber, Blanco and Kirchler (2026), "Collective evidence on behavioral interventions targeting
+      carbon pricing support: A many-designs approach with 55 studies", Nature Human Behaviour; Figure 3.
+      A many-designs study of 55 randomized controlled trials and almost 20,000 U.S. residents (k = 55, N = 19,558): behavioral
+      interventions increased support for carbon pricing only modestly, with most individual interventions yielding no
+      statistically significant effects. Left: real-world support (observed), with each team's expectation for its own design
+      (blue triangles, self-assessed) and peer expectations (red squares, peer-assessed); right: stated support. Grey lines
+      link each design across the two measures. Inference one-tailed. Observed: Q = 126.42, I-squared = 57.3%, tau = 0.123;
+      stated: Q = 106.07, I-squared = 49.1%, tau = 0.105.
+    </aside>
+  </section>
+
+  <!-- ==================== CO2 AUSTRIA ==================== -->
+  <section id="p1" data-no-chrome>
+    <div class="section-slide p1">
+      <h1>Salient carbon dividends are not enough to generate widespread support for carbon pricing</h1>
+      <div class="sec-authors">Rene Schwaiger, Julian Benda, Esther Blanco, Armando Holzknecht, Juergen Huber, Michael Kirchler</div>
+      <div class="sec-links">
+        <span>Preregistration Study 1:</span> <a href="https://doi.org/10.17605/OSF.IO/ZFVKE">doi.org/10.17605/OSF.IO/ZFVKE</a><br>
+        <span>Preregistration Study 2:</span> <a href="https://doi.org/10.17605/OSF.IO/BN82W">doi.org/10.17605/OSF.IO/BN82W</a><br>
+        <span>OSF project:</span> <a href="https://osf.io/zv4p5/">osf.io/zv4p5</a>
+      </div>
+      <div class="secprog"><span></span></div>
+    </div>
+  </section>
+
+  <!-- 4 · Motivation -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Carbon pricing and revenue recycling</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>Building public support for carbon pricing is widely recognized as one of the central challenges of current climate policy.</li>
+          <li>Expected financial costs, distributional fairness concerns, and distrust in how revenues are used are central determinants of support <span class="cite">(Dechezleprêtre et al., 2025)</span>.</li>
+          <li class="fragment beamer" data-fragment-index="1">Revenue recycling through carbon dividends, that is, returning carbon tax proceeds to citizens, has been proposed to increase acceptability.</li>
+          <li class="fragment beamer" data-fragment-index="2">Canada and Switzerland <span class="cite">(Mildenberger et al., 2022)</span>: low public awareness of the dividend, substantial underestimation of dividend amounts, only modest effects of individualized information on support.
+            <ul class="blist"><li>Attributed mostly to the low salience of the payment mechanism: rebates embedded in income tax returns (Canada) or deducted from health insurance premiums (Switzerland).</li></ul>
+          </li>
+          <li class="fragment beamer" data-fragment-index="3">Whether a more visible dividend design would produce different patterns of awareness and support remains open.</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      Mildenberger et al. analyzed the only two countries with implemented carbon tax dividend programs at the time.
+      They attribute the low awareness and limited support mostly to the low salience of the payment mechanism.
+      Our question: would a more visible dividend produce different patterns? Austria provides exactly that setting.
+    </aside>
+  </section>
+
+  <!-- 5 · Klimabonus -->
+  <section data-fig="co2-timeline">
+    <div class="frame">
+      <div class="frametitle"><h2>The Austrian Klimabonus</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody top" style="padding-top:18px;padding-bottom:34px">
+        <ul class="blist tight" style="flex:0 0 auto">
+          <li style="font-size:.7em">Introduced alongside Austria’s CO<sub>2</sub> pricing reform in October 2022: an annual lump-sum transfer to every resident over three consecutive years (2022–2024).</li>
+          <li style="font-size:.7em">Prominently communicated through a nationwide government campaign; paid out automatically to bank accounts or by post as a physical voucher.</li>
+          <li style="font-size:.7em">2024: €145 per adult in well-connected urban municipalities to €290 in the most rural areas; children under 18 received half the adult amount.</li>
+          <li class="fragment beamer" data-fragment-index="1" style="font-size:.7em">Abolished from 2025 onward, officially attributed to fiscal reasons, while the carbon tax remained in place.</li>
+        </ul>
+        <div class="figwrap" style="margin-top:6px"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" data-fragment-index="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" data-fragment-index="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" data-fragment-index="3" style="display:none"></div>
+    <aside class="notes">
+      The carbon price started at 30 euro per tonne, rose to 32.50 in 2023, 45 in 2024 and 55 in 2025; it stays fixed at 55
+      until 2028, when pricing moves to the EU-ETS II. The Klimabonus combined a universal base amount with a regional
+      top-up inversely related to public transport access. A family of two adults and two children received 435 euro in
+      Vienna and up to 870 euro in the most rural areas. First click: the abolition; then Study 1 and Study 2, one click each. Study 1, shortly after the third
+      payment, identifies the effect of information on support; Study 2, after the abolition, measures knowledge and
+      support again with the Study 1 baseline protocol.
+    </aside>
+  </section>
+
+  <!-- 6 · Design -->
+  <section data-fig="co2-design">
+    <div class="frame">
+      <div class="frametitle"><h2>Two preregistered studies</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody" style="padding-top:14px;padding-bottom:36px">
+        <div class="figwrap"><div class="figmount"></div></div>
+        <div class="stmt p1 fragment beamer" data-fragment-index="6" style="flex:0 0 auto;margin-top:8px">Both studies were preregistered, and sample sizes were based on power calculations.</div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" data-fragment-index="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" data-fragment-index="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" data-fragment-index="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" data-fragment-index="4" style="display:none"></div>
+    <div class="fragment" data-figstep="5" data-fragment-index="5" style="display:none"></div>
+    <aside class="notes">
+      Both samples are representative of the Austrian adult population (quotas for age, gender, federal state and education).
+      Study 1, November 2024, shortly after the third Klimabonus payment: a three-arm randomized survey experiment,
+      recruited by Bilendi &amp; Respondi. Clicks two to four show the verbatim information screens of each condition (Baseline, Tax, Tax + KB; the screens build on each other); the information
+      was conveyed in plain language with info-graphics, and after each knowledge question all participants received a
+      brief clarification of the correct answer. The information treatments identify the effect of information about the
+      tax and the dividend, not the direct effect of receiving the dividend. Study 2, March 2026, after the abolition,
+      follows the Study 1 baseline protocol; sample recruited by Norstat. Power: Study 1 target of 1,600 gave 80% power for d or h = 0.22;
+      Study 2 planned about 1,200 gave about 75% power for a point-biserial correlation of 0.10 (about d = 0.20); both at alpha = 0.005.
+      Preregistrations: OSF ZFVKE (Study 1) and BN82W (Study 2 addendum).
+    </aside>
+  </section>
+
+  <!-- 7 · Outcomes -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Outcome measures</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody top" style="padding-top:20px">
+        <div class="group">
+          <h3>Real-world behavioral proxies</h3>
+          <ul class="blist">
+            <li><b>Donation:</b> allocate between €0 and €200 of a potential €200 lottery prize to ForTomorrow, an organization that retires allowances from the EU Emissions Trading System.</li>
+            <li><b>Letter:</b> sign a letter to the Austrian Federal Ministry advocating an increase in the carbon price to its estimated social cost of €110 per tonne.</li>
+          </ul>
+        </div>
+        <div class="group fragment beamer" data-fragment-index="1">
+          <h3>Stated support and perceptions</h3>
+          <ul class="blist">
+            <li><b>Stated support</b> for the carbon tax in place, for the announced increase from €45 to €55, and for raising the price to €110 per tonne, each on a five-point scale from strong opposition to strong support (coded 1 to 5).</li>
+            <li><b>Perceptions:</b> effectiveness, fairness, burden on low-income households, and the effect on one’s own household.</li>
+          </ul>
+        </div>
+        <div class="group fragment beamer" data-fragment-index="2">
+          <h3>Policy knowledge</h3>
+          <ul class="blist">
+            <li><b>Study 1:</b> whether a carbon tax exists, how its revenue is used, and how the Klimabonus is paid (knowledge index, 0 to 3).</li>
+            <li><b>Study 2:</b> whether the tax remained in place, whether its revenue now enters the general government budget, and whether respondents received a Klimabonus in 2025 or expect one in 2026.</li>
+          </ul>
+        </div>
+        <div class="stmt p1 fragment beamer" data-fragment-index="3" style="margin-top:10px">The registered two-sided significance threshold of α = 0.005 is used throughout. The threshold 0.005 ≤ <i>P</i> &lt; 0.05 is considered as suggestive and <i>P</i> ≥ 0.05 as not statistically significant.</div>
+      </div>
+    </div>
+    <aside class="notes">
+      Ten respondents were selected as lottery winners and their chosen donations were implemented. A signature counts only
+      if the provider verified the submitted name. The support items follow Mildenberger et al.; the perception items follow
+      Dechezleprêtre et al. Scale labels in the German survey: "Stark dagegen" to "Stark dafür" (planned increase),
+      "Lehne stark ab" to "Unterstütze stark" (110 euro). The target of 1,600 respondents provided 80% power to detect a
+      pairwise standardized difference of 0.22 at alpha = 0.005.
+    </aside>
+  </section>
+
+  <!-- 8 · Fig 1 -->
+  <section data-fig="co2-fig1">
+    <div class="frame">
+      <div class="frametitle"><h2>Support for the carbon tax</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <aside class="notes">
+      Means or proportions with 95% confidence intervals, Study 1 Baseline (n = 503) and Study 2 (n = 1,105); solid bars
+      Study 1, striped bars Study 2. Bar lengths should not be compared across outcome types.
+      Study 1 Baseline: residents donated an average of 26.5 EUR and 22.1% signed the policy support letter; mean stated
+      support 2.62 for the carbon tax in place and 2.21 for increasing the tax to the social cost of carbon (110 euro per
+      tonne, about 120 USD, as suggested by the EPA). In an exploratory within-person comparison, support was higher for the
+      more humble planned increase to 55 euro (2.45) than for the social-cost increase (paired difference 0.241,
+      P &lt; 0.0001); 27.0% versus 20.7% rather or strongly in support.
+      After the abolition (Study 2): donations 26.52 vs 26.54 EUR, letter signing 18.8% vs 22.1%, support for the tax in
+      place 2.71 vs 2.62. The only cross-study difference reaching P &lt; 0.005 concerned support for the social-cost increase
+      (2.40 vs 2.21; uncontrolled standardized difference 0.174, P = 0.0026; controlled 0.148, P = 0.00086).
+      Support for reinstating the Klimabonus: 3.69, about one point higher than any other stated-support measure;
+      60.2% (631 of 1,048) rather or strongly support reinstatement. The samples were independently recruited;
+      differences between them are descriptive, not causal effects of the policy change.
+    </aside>
+  </section>
+
+  <!-- 9 · Fig 2 -->
+  <section data-fig="co2-fig2">
+    <div class="frame">
+      <div class="frametitle"><h2>Policy knowledge</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <aside class="notes">
+      One quadrant per click. Complete response distributions; dark outlines mark the response coded as correct in each
+      study, which differs for revenue use because the Klimabonus was abolished. After each question, participants received
+      a brief clarification of the correct answer.
+      Baseline: 72.6% knew that Austria levied a carbon tax, so about 1 in 4 residents did not know they had been paying a
+      carbon tax in place since 2022. Only 13.9% correctly identified the use of its revenues to be a dividend. After being
+      told that revenues fund the dividend, 33.9% identified the payment channel (additional Study 1 question).
+      Early 2026: 71.4% knew the tax existed; 33.6% correctly identified the general government budget; 59.4% correctly
+      reported no Klimabonus in 2025 while 25.2% believed they had received one; 56.9% correctly expected none in 2026.
+    </aside>
+  </section>
+
+  <!-- 10 · Fig 3 -->
+  <section data-fig="co2-fig3">
+    <div class="frame">
+      <div class="frametitle"><h2>Perceptions of the carbon-pricing policy</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <aside class="notes">
+      One quadrant per click. Study 1: 32.4% strongly disagreed with the carbon tax being effective and 35.0% strongly disagreed with it being fair;
+      68.4% rather or strongly agreed that the tax placed disproportionate burden on low-income households; own household:
+      44.5% no perceived effect, 49.7% clearly or moderately worse off, 5.8% moderately or clearly better off.
+      Study 2: the most frequent effectiveness response is neither (31.6%); strong disagreement is the most frequent fairness
+      response (30.0%); 67.7% agree the tax burdens low-income households. None of the cross-study differences in
+      perceptions reached P &lt; 0.05.
+    </aside>
+  </section>
+
+  <!-- 11 · Fig 4 -->
+  <section data-fig="co2-fig4">
+    <div class="frame">
+      <div class="frametitle"><h2>Effects of information on support, knowledge and perceptions</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <aside class="notes">
+      Fully covariate controlled models: 30 common covariates plus regional Klimabonus-group fixed effects (n = 1,310 to
+      1,312). Thick lines 95% CIs, thin lines 99.5% CIs matching alpha = 0.005; circles Tax, diamonds Tax + KB.
+      Neither information treatment affected any support outcome at the prespecified threshold of alpha = 0.005.
+      Controlled models give suggestive evidence of small increases in support for the tax in place and the planned
+      increase (0.101 to 0.130 SD), and tax-only information suggestively reduced letter signing (h = -0.130, P = 0.037);
+      no univariate contrast reached P &lt; 0.05.
+      Exploratory item-level analysis: Tax + KB increased correct identification of how the dividend was paid, by bank
+      transfer or postal voucher (h = 0.206, P = 0.0018), but did not produce a broader improvement in policy knowledge.
+      Mediation: all absolute estimated indirect effects via knowledge were below 0.011 standard deviations.
+      The treatments have features that could be interpreted as a best case for communication interventions.
+    </aside>
+  </section>
+
+  <!-- 12 · Fig 5 part 1 -->
+  <section data-fig="co2-fig5" data-fig-opts='{"part":1}'>
+    <div class="frame">
+      <div class="frametitle"><h2>Correlates of carbon-pricing support</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      Exploratory pooled associations with support in Study 1 and Study 2 (Study 1 Baseline plus Study 2). Continuous
+      variables over one SD, binary variables between categories; effects standardized. Dark-green knowledge rows: pooled
+      models with both knowledge measures; lighter green: separate Study 1 and Study 2 models. One star 0.005 &lt;= P &lt; 0.05,
+      two stars P &lt; 0.005.
+      No significant association of correct knowledge with either real-world measure of support. While the dividend was in
+      place, correctly identifying the dividend was suggestively positively associated with stated support (0.249 and 0.250
+      outcome SD); after its abolition, knowing that revenue goes to the general budget was suggestively negatively associated
+      with stated support (-0.154 and -0.115 SD). Being more right-wing: negatively associated with stated support at
+      P &lt; 0.005, suggestively with donations and letter signing. Government trust: positive with both stated-support
+      outcomes (P &lt; 0.0001) and suggestively with donations.
+    </aside>
+  </section>
+
+  <!-- 13 · Fig 5 part 2 -->
+  <section data-fig="co2-fig5" data-fig-opts='{"part":2}'>
+    <div class="frame">
+      <div class="frametitle"><h2>Correlates of carbon-pricing support</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      Willingness to drive less was positively associated with all four outcomes (standardized associations 0.099 to 0.181;
+      all P &lt; 0.005). Willingness to buy an electric vehicle and belief that climate change is human-caused: positive for
+      both stated-support outcomes, suggestive for one real-world measure. Most climate-risk perceptions, current consumption
+      habits, and other stated mitigation intentions showed no consistent significant associations. Direct comparisons
+      showed no significant difference in association strength between willingness to drive less and political orientation
+      (all P &gt;= 0.061). Among risk perceptions only drought and heat risk was associated with support, and only for the
+      tax in place (0.108 SD, P = 0.00076).
+    </aside>
+  </section>
+
+  <!-- 14 · Discussion P1 -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Discussion</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>Support for the carbon tax was low while the dividend was in place and remained low after its removal; knowledge of the dividend was severely limited throughout, despite its design elements that foster visibility.</li>
+          <li class="fragment beamer" data-fragment-index="1">Information campaigns to the general public may have limited potential to foster support for carbon pricing.</li>
+          <li class="fragment beamer" data-fragment-index="2">Willingness to drive less and political views are stronger predictors of support for carbon pricing than knowledge about the carbon tax or dividend.</li>
+          <li class="fragment beamer" data-fragment-index="3">The constraints on carbon tax support are not specific to low-salience dividends but appear to reflect a more fundamental opposition to carbon pricing.</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      Caveat: the knowledge measures capture awareness of the fiscal link between tax and payment, not recall of having received
+      the Klimabonus. But the treatments were designed to close precisely this gap and made clear that most citizens would be
+      net beneficiaries; even then support did not meaningfully increase. Modifying support for climate policies may be harder
+      than modifying individual mitigation choices. Open question: what, if anything, can build durable support.
+    </aside>
+  </section>
+
+  <!-- ==================== PART 2 · LLMs AS SYNTHETIC POPULATIONS ==================== -->
+  <!-- Source: the LLM talk in ../Papers/HKV_reveal (slide text verbatim, figures ported to js/figures/llm.js) -->
+  <section id="p2" data-no-chrome>
+    <div class="section-slide p2">
+      <h1>Large Language Models as Synthetic Populations: Quantifying Between-LLM Heterogeneity</h1>
+      <div class="sec-authors">Armando Holzknecht, Christian König-Kersting, David Valenta</div>
+      <div class="sec-links"><span>Pre-registration, materials and code (OSF):</span> <a href="https://osf.io/k7fnh">osf.io/k7fnh</a></div>
+      <div class="secprog"><span></span></div>
+    </div>
+    <aside class="notes">
+      The study was pre-registered on OSF; the data were collected between 29 October and 3 November 2026, and
+      everything shown is the real data, analysed as pre-registered.
+    </aside>
+  </section>
+
+  <!-- Synthetic participants -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Synthetic participants</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>Large language models have rapidly become a standard research instrument in the social and behavioural sciences.</li>
+          <li>A growing body of work uses them as “synthetic participants” to generate survey responses and experimental decisions <span class="cite">(Argyle et al., 2023; Dillion et al., 2023; Cui et al., 2025)</span>,</li>
+          <li class="fragment beamer">to replicate stylised facts of human behaviour in economic games <span class="cite">(Polachek et al., 2025; Akata et al., 2025; Pal et al., 2026)</span>,</li>
+          <li class="fragment beamer">and to forecast how human samples will respond to a treatment before the human study is run <span class="cite">(Hewitt et al., 2026)</span>.</li>
+          <li class="fragment beamer">The appeal is straightforward: synthetic samples are fast, cheap and replenishable, which is particularly attractive for pre-testing policy interventions that are expensive, slow or politically costly to field.</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      Three uses: generate responses, replicate stylised facts, forecast human results. Then the appeal: fast, cheap,
+      replenishable. The point is that this is now normal practice.
+      The papers, one line each, if anyone asks. Argyle et al. (2023), Political Analysis: conditioning GPT-3 on
+      demographic backstories reproduces US survey response distributions. Dillion et al. (2023), TiCS: a very high
+      correlation between GPT moral judgements and human ratings, still arguing against replacement. Cui et al. (2025),
+      Nature Computational Science: large-scale LLM replication of scenario-based experiments in psychology and
+      management. Polachek et al. (2025), SSRN: ultimatum-game responders, human vs LLM. Akata et al. (2025), Nature
+      Human Behaviour: LLMs in repeated games. Pal et al. (2026), PNAS Nexus: LLMs instantiate evolutionarily robust
+      cooperation strategies. Hewitt et al. (2026), Nature: LLMs predict the results of social science experiments.
+    </aside>
+  </section>
+
+  <!-- Model dependence -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Model dependence</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>LLM responses to identical prompts vary substantially across providers, model versions and time <span class="cite">(Bisbee et al., 2024; Sclar et al., 2024)</span>.</li>
+          <li class="fragment beamer">Some authors have responded by running a handful of models and checking whether the headline finding survives.</li>
+          <li class="fragment beamer">What is missing is a quantitative measure of how much of the variation in effect sizes is attributable to the choice of the model.</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      The gap. Emphasise "effect sizes": not response distributions, not accuracy, but the estimand researchers actually
+      report. When synthetic pre-tests inform whether interventions are fielded, scaled or abandoned, substantive
+      conclusions may become partly contingent on the provider or model selected.
+      Bisbee et al. (2024), Political Analysis: ANES replication; GPT gets the means roughly right but the variance badly
+      wrong, and answers move with the model version. Sclar et al. (2024): formatting alone (separators, spacing,
+      ordering) moves performance substantially on an otherwise identical task.
+    </aside>
+  </section>
+
+  <!-- Population heterogeneity -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Population heterogeneity</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>Holzmeister et al. (2024) decompose heterogeneity in effect-size estimates into population, design and analytical sources, each isolated by holding the other two fixed.</li>
+          <li class="fragment beamer">Following this framework, we argue that LLM-induced heterogeneity can be understood as a form of population heterogeneity: the design (one prompt per condition) and the analysis (one estimation path) are held fixed.</li>
+          <li class="fragment beamer">Each model constitutes a potential synthetic population from which researchers can sample; as in many-labs studies, each LLM serves as an independently collected study population.</li>
+        </ul>
+        <div class="stmt p2 fragment beamer"><b>Hypothesis 1 (pre-registered):</b> There is significant between-LLM heterogeneity (<i>τ</i> &gt; 0) in effect sizes.</div>
+      </div>
+    </div>
+    <aside class="notes">
+      The framing that makes the project a measurement exercise. Stress the isolation logic: design and analysis are held
+      fixed by construction, so tau can directly be interpreted as population heterogeneity. Then H1, and be explicit
+      that everything about providers is exploratory.
+    </aside>
+  </section>
+
+  <!-- Design -->
+  <section data-fig="llm-design">
+    <div class="frame">
+      <div class="frametitle"><h2>Design</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <aside class="notes">
+      The design in one picture: Case 1 on arrival, Case 2 on the click. Case 1 is a conceptual replication with a human benchmark: the
+      Austrian study from the first part of this talk. Case 2 is a direct replication we extend with the trust game.
+      Two treatments times three games plus one treatment times two outcomes gives eight cells, each of which becomes
+      one random-effects meta-analysis over the panel.
+    </aside>
+  </section>
+
+  <!-- Case 1 -->
+  <section data-fig="llm-prompts">
+    <div class="frame">
+      <div class="frametitle"><h2>Case 1: Nudging intervention for Carbon Pricing Support</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      The concrete manipulation. First the part both arms share: a welcome and consent block (project description,
+      compensation, confidentiality), then general information saying the study has one survey question and one
+      incentivized decision task, and then the climate introduction, "A Warming Planet", on the costs of greenhouse-gas
+      emissions. That is the whole common stem. The three orange blocks are the entire treatment. Two outcomes per
+      respondent: stated support on a five-point scale, revealed support as a donation out of a potential 200-euro
+      lottery win. 200 observations per arm, 400 per model. The human benchmark is a representative Austrian sample of
+      n = 1,600, and both prompts reproduce the welcome information, the baseline climate text, the tax information
+      text, the stated-support question and the incentivized donation task of Schwaiger et al. (2026).
+    </aside>
+  </section>
+
+  <!-- Case 2 -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Case 2: First-Mover actions in Classic Economic Games</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>Dictator, ultimatum and trust games. The DG and UG prompts are verbatim from Polachek et al. (2026); the trustor prompt is our extension.</li>
+          <li class="fragment beamer" data-fragment-index="1">Two binary treatments crossed orthogonally:
+            <ul class="blist">
+              <li><b>Wealth</b> — stated initial endowment of 493 vs. 0 Rupees;</li>
+              <li><b>Human emphasis</b> — an added “Respond as if you are human.” instruction.</li>
+            </ul>
+          </li>
+          <li class="fragment beamer" data-fragment-index="2">Five-level stake ladder (20 to 200,000 Rupees) as a covariate ⇒ 20 cells × 100 observations = 2,000 per LLM and game.</li>
+        </ul>
+        <div class="formula llm-eq fragment beamer" data-fragment-index="3">Proportion<sub><i>i</i></sub> = α + β<sub>1</sub> log(Stakes<sub><i>i</i></sub>) + β<sub>2</sub> Wealth<sub><i>i</i></sub> + β<sub>3</sub> HumanEmphasis<sub><i>i</i></sub> + ε<sub><i>i</i></sub></div>
+        <ul class="blist">
+          <li class="fragment beamer" data-fragment-index="3">β<sub>2</sub> and β<sub>3</sub> are the two focal effects; each game is analysed as a separate meta-analysis.</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      Case 2 in one breath. Both treatments are pure framing: the wealth line is a stated initial endowment, and the
+      human-emphasis sentence adds nothing informational. The trust game is our addition.
+    </aside>
+  </section>
+
+  <!-- Estimation pipeline -->
+  <section data-fig="llm-pipeline">
+    <div class="frame">
+      <div class="frametitle"><h2>Estimation pipeline: one model</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" style="display:none"></div>
+    <div class="fragment" data-figstep="5" style="display:none"></div>
+    <div class="fragment" data-figstep="6" style="display:none"></div>
+    <div class="fragment" data-figstep="7" style="display:none"></div>
+    <aside class="notes">
+      The core slide, built up one stage per click: the model is on screen on arrival, then seven clicks. (1) One model; (2) the model is a potential synthetic
+      population, and the N = 400 responses are a sample from it; (3) half get control, half get treatment:
+      randomisation is by construction, we simply send 200 of each; (4) the two prompts, differing only in the three tax
+      blocks; (5) every query returns both outcomes, stated support on 1 to 5 and the donation out of the 200-euro
+      lottery win; (6) the two response distributions and the shift between their means; (7) one OLS per outcome, with
+      HC3 robust standard errors; (8) divide by the pooled SD, Huber et al. (2023), and you have Cohen's d with its SE.
+      These are the real responses of gpt-5-2025-08-07: the information treatment LOWERS its stated support, d = -0.46;
+      in the forest plot of the results it is one of the rows near the top. The donation runs through the identical path
+      (d = -0.48 for this model). Nothing here is a chat session: stateless, single-turn API calls at provider defaults,
+      no system prompt, no conversation history, no tools.
+    </aside>
+  </section>
+
+  <!-- LLM panel -->
+  <section data-fig="llm-panel">
+    <div class="frame">
+      <div class="frametitle"><h2>LLM panel</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <aside class="notes">
+      The panel, and the caveat that comes with it: this market turns over weekly. Of the 57 registered models, ten were
+      no longer accessible at data collection (four Gemma 3, three Llama 3, gpt-3.5-turbo-0125, gpt-4-0613,
+      Qwen3.5-Flash), shown in red. At the same time 16 models were released after the pre-registration, which we added:
+      in green, marked with a dagger. 63 LLMs from ten providers in total, 47 of them registered.
+      The deviation to state openly: the registration made the 47 accessible registered models the confirmatory panel.
+      Because the added models include the current frontier models researchers are most likely to use, the main
+      analysis runs on all 63; restricted to the 47 registered models, homogeneity is likewise rejected in all eight
+      cells (tau 0.21 to 0.53). Selection criteria, if asked: accessible through a stable API, not among the most
+      expensive models, spanning large and small, current and older models from every major provider.
+      Data collection took place between 29 October and 3 November 2026: 25,200 responses in Case 1 (400 per LLM) and
+      378,000 responses in Case 2 (2,000 per LLM and game). Exclusions, if asked: rule (i), responses that are not a
+      sensible answer, was hardly binding (no response in Case 1, 18 of 378,000 in Case 2). Rule (ii) was binding for 38
+      model-cell combinations, in which a model gave the identical answer in every query of both conditions, so Cohen's
+      d is undefined; these models are shown in the forest plots with an asterisk at zero and left out of the
+      meta-analyses.
+    </aside>
+  </section>
+
+  <!-- Results: carbon tax (paper Figure 1) -->
+  <section data-fig="llm-forest-ct" data-no-chrome>
+    <div class="frame">
+      <div class="framebody bare">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      Figure 1 of the paper. Each line is one LLM at d plus or minus 1.96 SE, sorted by the estimate; a dagger marks a
+      model added after the pre-registration; the asterisked rows at zero are the rule-(ii) exclusions; the black diamond
+      is the REML pooled effect (mu); the blue row is the human data. The curve at the bottom is the estimated
+      distribution of true effects across LLMs, theta ~ N(mu, tau^2); the dashed curves use the bounds of the 95% CI of
+      tau, and the shares give how many true effects lie below and above zero.
+      Stated support: tau = 0.34, Q(47) = 587, p &lt; 0.001. Per-LLM effects from d = -0.56 (gpt-5.6-luna) to 1.44
+      (ministral-14b-2512); 12 significantly positive, eight significantly negative. The pooled effect is small and not
+      different from zero, d = 0.09.
+      Revealed support: tau = 0.39, Q(57) = 938, p &lt; 0.001; from -1.48 (gemini-3.5-flash-lite) to 0.86
+      (ministral-3b-2512). Pooled d = -0.14: suggestive evidence that the information treatment, on average across LLMs,
+      reduces donations (p = 0.008).
+      The human effect, estimated with the identical pipeline, is small and not significant for both outcomes (d = 0.09
+      and 0.02). For stated support the pooled LLM effect coincides almost exactly with it, but 15 of 48 models (stated)
+      and 15 of 58 (revealed) yield an effect that differs significantly from the human one. These comparisons are
+      exploratory; we do not rank models by proximity to humans.
+    </aside>
+  </section>
+
+  <!-- Results: wealth (paper Figure 2) -->
+  <section data-fig="llm-forest-wealth" data-no-chrome>
+    <div class="frame">
+      <div class="framebody bare">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      Three games on a common axis. tau = 0.29 (DG), 0.24 (UG), 0.32 (TG); homogeneity rejected in all three. The pooled
+      wealth effects are small: close to zero in the DG, suggestive negative in the UG (d = -0.08, p = 0.008),
+      significantly negative in the TG (d = -0.15). These small averages mask effects of opposite signs: in the trust
+      game eight LLMs are significantly positive and 31 significantly negative, from d = -1.53 (claude-fable-5-1) to
+      0.48 (llama-4-maverick). Depending on the LLM queried, a researcher would conclude that higher wealth makes first
+      movers significantly more generous, significantly less generous, or leaves their behaviour unaffected.
+    </aside>
+  </section>
+
+  <!-- Results: human emphasis (paper Figure 3) -->
+  <section data-fig="llm-forest-human" data-no-chrome>
+    <div class="frame">
+      <div class="framebody bare">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      One added sentence: "Respond as if you are human". Unlike wealth, it increases the share sent on average,
+      significantly in all three games (d = 0.32, 0.26, 0.16). Most models move in this direction, but by very different
+      amounts: in the dictator game from d = -0.31 (gpt-4o-mini) to 2.49 (llama-4-maverick). The dictator game has the
+      largest heterogeneity of all eight cells, tau = 0.50; UG 0.38, TG 0.21. With one model you would have reported one
+      point on this line, and nothing about how far it could have moved had a different LLM been selected.
+    </aside>
+  </section>
+
+  <!-- Meta-analysis summary -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Meta-analysis summary</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div data-llm-metatable></div>
+      </div>
+    </div>
+    <aside class="notes">
+      The deliverable of the confirmatory analysis: one column per cell, one tau each, full panel. Do not read it out;
+      point at the tau row and the p row. The study-level criterion: H1 is supported within a case if Q rejects at
+      p &lt; 0.005 in both cells of Case 1 and in at least four of six cells of Case 2; it rejects in all eight.
+      Robustness, if asked: the 47 registered models only, all eight rejected, tau 0.21 to 0.53; the balanced panel of 32
+      registered models with a defined d in every cell, tau 0.19 to 0.40; pooling the unstandardised OLS coefficients on
+      the raw scale, all eight rejected. The lower bound of the 99.5% CI for tau exceeds 0.06 in every cell, and the 95%
+      prediction interval includes zero in every cell.
+    </aside>
+  </section>
+
+  <!-- Exploratory moderation: human emphasis -->
+  <section data-fig="llm-mod-human">
+    <div class="frame">
+      <div class="frametitle"><h2>Exploratory moderation: human emphasis</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      What explains the spread? Mixed-effects meta-regressions with the provider as moderator, clearly exploratory. Each
+      row is the subgroup-pooled effect of one provider; the grey line the overall pooled effect.
+      The human-emphasis treatment is the only treatment for which the provider explains a substantial share of the
+      heterogeneity: the treatment that directly addresses how the model should portray itself. Significant in the
+      ultimatum game (Q_M(9) = 24.69, p = 0.003, R2_meta = 21.3%) and in the trust game (Q_M(9) = 28.46, p &lt; 0.001,
+      25.9%); suggestive in the dictator game (Q_M(9) = 22.02, p = 0.009, 18.2%). In the ultimatum game the
+      subgroup-pooled effects range from d = 0.06 for OpenAI to 0.97 for Meta.
+      For the other treatments, if asked: for neither Case 1 outcome does the provider explain any share of the
+      between-LLM variance (Q_M(9) = 5.62, p = 0.777 for stated support; Q_M(9) = 4.23, p = 0.896 for revealed support;
+      R2_meta = 0% in both); for the wealth effect the provider explains no significant share in any of the three games
+      (all p of 0.33 or more). Overall, model-specific idiosyncrasies appear to dominate systematic differences between
+      providers.
+    </aside>
+  </section>
+
+  <!-- Conclusion -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Conclusion</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>We quantify how much the effect sizes of synthetic pre-tests depend on which model is queried: each of 63 LLMs from ten providers serves as an independently collected study population, and we pool the per-LLM effects of two cases (eight treatment–outcome cells) in random-effects meta-analyses.</li>
+          <li class="fragment beamer">Homogeneity is rejected in every cell. The estimates of <i>τ</i> range from 0.21 to 0.50, with a median of <span data-llm-medtau>0.33</span>, which is about 5.5 times the median between-population heterogeneity of <i>τ</i> ≈ 0.06 reported by Holzmeister et al. (2024).</li>
+          <li class="fragment beamer">An effect estimated from a single LLM should not be interpreted as an estimate of “the” synthetic effect: the uncertainty attributable to model choice is often larger than the sampling uncertainty within a model.</li>
+          <li class="fragment beamer">Synthetic pre-tests should be based on a broad panel of models, with the between-model variation reported alongside the pooled effect.</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      Close on the findings, then the implications. The median tau is about five times the median heterogeneity
+      Holzmeister et al. report across human populations: if each LLM is one synthetic population, these populations
+      differ from one another more than human populations do. That is the missing error bar of single-model studies. Our
+      tau estimates can serve as a reference for uncertainty assessments and power calculations, e.g. reported as a
+      prediction interval.
+      Limitations, if asked: the panel is a snapshot of a rapidly changing market; each model was queried at provider
+      defaults, single-turn, with a single prompt per condition, so prompt wording, decoding parameters or persona
+      conditioning would likely add to the uncertainty we document; and the Case 2 prompts and results are published, so
+      they may be in the training data (this does not affect the estimand).
+      Anticipated questions. "Nobody thinks tau is exactly zero": agree; the interesting quantity is the magnitude of
+      tau and the width of the prediction interval, not the rejection. The design has no same-model-twice control, so
+      within-model run-to-run instability is not separated from between-model variation. "Is it just response bias?": a
+      directional bias that shifts a model's answers uniformly in both conditions would cancel out in a treatment
+      contrast (cf. Meyer et al. 2026), yet we still find large between-model differences in treatment effects. "What
+      are the API settings?": provider defaults throughout, one stateless single-turn call per observation, no system
+      prompt, no tools. "Which model is closest to humans?": we deliberately make no such claim; the human benchmark is
+      depicted, the comparisons are exploratory. "What next?": varying prompts and models in a crossed design, to weigh
+      model choice against prompt choice; and model characteristics such as size, release date or post-training that
+      predict the response.
+    </aside>
+  </section>
+
+  <!-- ==================== PART 3 · ESS ==================== -->
+  <section id="p3" data-no-chrome>
+    <div class="section-slide p3">
+      <h1>Large scale evidence on replicability from the European Social Survey</h1>
+      <div class="sec-authors">Armando Holzknecht, Magnus Johannesson, Levent Neyse, Felix Holzmeister</div>
+      <div class="sec-links"><span>Pre-analysis plan 1 (Zenodo):</span> <a href="https://doi.org/10.5281/zenodo.23187422">doi.org/10.5281/zenodo.23187422</a></div>
+      <div class="secprog"><span></span></div>
+    </div>
+  </section>
+
+  <!-- ESS motivation 1 (paper draft, introduction) -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Large-scale replication projects</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>Large-scale replication projects in the social sciences suggest a replication rate of about 50%, both in terms of significant findings and relative effect sizes <span class="cite">(Open Science Collaboration, 2015; Camerer et al., 2016, 2018; Holzmeister et al., 2025)</span>.</li>
+          <li>Most of the replicated studies have been lab or online experiments, although observational data studies constitute the bulk of empirical work in the social sciences.</li>
+          <li class="fragment beamer" data-fragment-index="1">New data for replicating observational studies can be difficult to find, and collecting it may be costly or infeasible.</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      The Reproducibility Project: Psychology replicated 100 studies from three top psychology journals; of the 97 original
+      studies reporting positive findings, only 35 (36%) replicated, in terms of an effect in the same direction significant
+      at the 5% level. Across projects, the significance rate ranges from about 36% (RP:P) to 70% for papers in Management
+      Science (Davis et al., 2023); Tyner et al. (2026), 164 papers published 2009 to 2018: 49% on the significance indicator,
+      40% on the relative effect size. The lack of new data has led to a trend towards robustness tests of observational
+      data studies (Campbell et al., 2024; Aczel et al., 2026; Brodeur et al., 2026). Holzknecht, Johannesson and Holzmeister
+      (2026) is our simulation paper on what replicability and robustness reveal about true effects.
+    </aside>
+  </section>
+
+  <!-- ESS motivation 2 (paper draft, introduction); overlay figure: Muravyev (2026), js/figures/muravyev.js -->
+  <section data-fig="muravyev-ratio">
+    <div class="frame">
+      <div class="frametitle"><h2>Replications in new time periods</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody has-overlay">
+        <ul class="blist">
+          <li>Delios et al. (2022) tested 29 studies in strategic management in new time periods and countries: 23 of 42 time-period replication tests (55%) and 4 of 10 country tests (40%) replicated.</li>
+          <li class="fragment beamer" data-fragment-index="1">Muravyev (2026) replicated over 1,000 results from the top three finance journals in new time periods with an LLM pipeline: 42% in terms of significant results in the original direction, 45% in terms of relative effect sizes.</li>
+          <li class="fragment beamer" data-fragment-index="3">For studies based on repeated general population survey data, original studies can be replicated in new data rounds.</li>
+          <li class="fragment beamer" data-fragment-index="4">We implement such replications at large scale in the European Social Survey (ESS), based on a pre-registered design and AI-assisted methodology.</li>
+        </ul>
+        <div class="figoverlay figmount"></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" data-fragment-index="2" style="display:none"></div>
+    <div class="fragment" data-figstep="2" data-fragment-index="3" style="display:none"></div>
+    <aside class="notes">
+      Delios et al. outlined an avenue for systematic replication work on observational data: test the original results in
+      new time periods and countries. Muravyev extended this to finance; the important advance is the LLM pipeline, which
+      makes replications scalable. We build on both ideas: the ESS has collected general population data in 11 rounds since
+      2002/03, so every round after the data used in a paper is a natural holdout sample.
+      The figure is Muravyev's own (dmurav.com/replications), redrawn from his vector PDF: the mean yearly coefficient
+      ratio (yearly / published) by year relative to the end of the original sample, about 0.85 before and about 0.57
+      after; grey: 95% paper-bootstrap intervals; the open circle is year 0. He obtains 1,328 in-sample replications, 1,005
+      with enough post-sample data; in sample 75% reproduce the published sign and significance (median coefficient ratio
+      0.93), out of sample 42% (median ratio 0.45). The figure opens as a light overlay on its own click after the Muravyev bullet and closes with the next bullet.
+    </aside>
+  </section>
+
+  <!-- ESS design: the three stages -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Design: three stages</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <p class="lead">Replicate observational studies using data from the European Social Survey (ESS): a repeated cross-section of the population aged 15 and older, 11 rounds from 2002/03 to 2023/24, 39 countries.</p>
+        <div class="vstack">
+          <div class="vcard p3"><div class="k">0</div><div><h3>Stage 0: Collecting eligible papers</h3><p>Criteria (a)–(c) applied to the ESS Bibliography: articles listed in Part I (“Substantive Publications”), published 2003–2024, peer-reviewed, in English, in a journal indexed in the SSCI or SCIE, full text obtainable; 2,972 articles.</p></div></div>
+          <div class="vcard p3 fragment beamer" data-fragment-index="1"><div class="k">1</div><div><h3>Stage 1: Screening</h3><p>AI agents screen the 2,972 articles against criteria (d)–(h) and record, for each eligible paper, the statistically significant key result most strongly emphasized in a specification card; 601 papers for replication.</p></div></div>
+          <div class="vcard p3 fragment beamer" data-fragment-index="2"><div class="k">2</div><div><h3>Stage 2: Implementation (recreation and replication)</h3><p>An AI agent recreates the key estimate from the specification card with the ESS data used in the original paper, then runs the same script on the ESS rounds collected after those used in the original study.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      Stage 0 is the initial screening and Stage 1 the AI-assisted identification of key results, both specified in PAP1
+      (doi 10.5281/zenodo.23187422); Stage 2 and the hypotheses are specified in PAP2. For each eligible paper we replicate
+      one statistically significant result: the result most strongly emphasized in the paper that relies exclusively on
+      ESS data and publicly available country-level indicators. Primary replication indicator: the relative effect size in
+      the replication compared with the original study; we test whether relative effect sizes are systematically smaller
+      than 1, and whether replicability is associated with journal impact factor, research field and publication year.
+      ESS target sample size: at least 1,500 respondents per country and round (800 where fewer than 2 million residents
+      are aged 15 or older).
+    </aside>
+  </section>
+
+  <!-- Stage 0 · PRISMA -->
+  <section data-fig="ess-prisma">
+    <div class="frame">
+      <div class="frametitle"><h2>Stage 0: Study selection</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody" style="padding-top:12px;padding-bottom:36px">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" style="display:none"></div>
+    <aside class="notes">
+      The bibliography has 7,546 entries; 6,742 belong to Part I. Records removed before screening are identified by fixed
+      rules on the citation string. The index screen matched ISSNs from Crossref and OpenAlex against the Clarivate Master
+      Journal List; 483 records without ISSN were resolved from the full text. Of the AI-assisted downloads, 709 were made by
+      the agent operating the browser within the library session, 18 were open copies it located. Every decision is recorded
+      with its evidence in a per-entry decision report.
+    </aside>
+  </section>
+
+  <!-- Stage 1 · Inclusion criteria (d)-(h); (a)-(c) are on the design slide (Stage 0) -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Stage 1: Inclusion criteria</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist small">
+          <li><b>(d)</b> At least one statistically significant key result (two-sided <i>p</i> &lt; 0.05) in the Abstract, Introduction, Discussion, or Conclusion, based exclusively on ESS data and country- and region-level indicators from the ESS Multilevel Data.</li>
+          <li><b>(e)</b> Testable with at least one ESS round fielded after the ESS data used in the original paper.</li>
+          <li><b>(f)</b> Reported as a regression coefficient with its <i>t</i>- or <i>z</i>-statistic, <i>p</i>-value, standard error, or confidence interval.</li>
+          <li><b>(g)</b> Interpreted as a test of a hypothesis rather than as a purely descriptive result.</li>
+          <li><b>(h)</b> If more than one result qualifies: the result most strongly emphasized; up to three results, in order of emphasis.</li>
+          <li><b>Exclusion:</b> the key result estimates the effect of a policy intervention or another event occurring during the original study period.</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      Criteria (a) to (c) were applied in Stage 0: listed in Part I of the ESS Bibliography 2003 to 2024; peer-reviewed
+      article in English in a journal indexed in the SSCI or SCIE; PDF of the published article or the author's accepted
+      manuscript obtainable. The exclusion criterion exists because the relevant event may not be present in the replication
+      period. If the key result fails a criterion, we turn to the next result in order of emphasis; if none of up to three
+      results qualifies, the paper is excluded. Multilevel indicators come from the ESS Multilevel Data File of round 11.
+      One deviation changes a criterion (PAP2, Appendix A, Deviation 4): in the second screening run, the AI tool could also
+      obtain country-level indicators from other publicly available sources (e.g., Eurostat, the OECD or the World Bank).
+      This applies to 193 of the 603 included articles; a robustness test compares them with the rest.
+    </aside>
+  </section>
+
+  <!-- Stage 1 · AI pipeline -->
+  <section data-fig="ess-pipeline">
+    <div class="frame">
+      <div class="frametitle"><h2>Stage 1: AI-assisted identification of key results</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" style="display:none"></div>
+    <aside class="notes">
+      Agents are instances of Claude Opus 5.5 at high effort, run through Claude Code in non-interactive mode, at most five at
+      a time; no web search, no file deletion, no human intervention during the run. Each article is read by a separate agent
+      in a fresh context, with only the PDF and its own supplementary material. The card lists up to three candidate results
+      in order of emphasis. A card that fails a check is discarded and the article read again. The agents' own eligibility
+      verdicts are recorded and compared, but do not affect eligibility. Prompt, SHA-256 hash and scripts are registered on Zenodo.
+      Three runs (PAP2, Appendix A): the first, pre-registered run included 370 of the 2,972 papers; a second run re-read 1,106
+      papers with indicators from other public sources and a corrected verification script (633 included); a third run read
+      151 papers once more, after which every paper was either included or excluded (614). We then excluded one paper whose
+      journal is not in the SSCI/SCIE and 10 whose key estimate has no computable t/z-value: 603 remain, and 601 after
+      excluding the two pilot papers. Setup and Stage 1 outcomes: doi.org/10.5281/zenodo.23910694.
+    </aside>
+  </section>
+
+  <!-- Stage 1 example: specification card of pilot paper S6350 (pages: assets/cards, js/figures/cards.js) -->
+  <section data-fig="ess-card" data-fig-opts='{"card":"spec","steps":10}'>
+    <div class="frame">
+      <div class="frametitle"><h2>Stage 1: Specification card</h2><span class="ft-cite">Pilot study: von dem Knesebeck &amp; Geyer (2007), <i>BMC Public Health</i></span><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" style="display:none"></div>
+    <div class="fragment" data-figstep="5" style="display:none"></div>
+    <div class="fragment" data-figstep="6" style="display:none"></div>
+    <div class="fragment" data-figstep="7" style="display:none"></div>
+    <div class="fragment" data-figstep="8" style="display:none"></div>
+    <div class="fragment" data-figstep="9" style="display:none"></div>
+    <div class="fragment" data-figstep="10" style="display:none"></div>
+    <aside class="notes">
+      Each click scrolls the card down by less than one screen; the mouse wheel also scrolls. The card records up to three
+      key estimates that support the key result but focuses on the first, the coefficient the paper's text leads with. It
+      sets out the analytical specification of this estimate as reported in the paper (model, dependent variable,
+      independent variables, sample restrictions), marks every choice the paper leaves open as inferred, and identifies the
+      future holdout waves in which the estimate is to be replicated. Example: von dem Knesebeck and Geyer (2007), emotional
+      support and education in 22 countries, ESS round 1; key estimate for men in Germany, odds ratio 5.03, 95% CI
+      [2.54, 9.95]. It is one of the five pilot papers; since we observed its recreation and replication results before
+      registration, it is excluded from all analyses.
+    </aside>
+  </section>
+
+  <!-- Stage 2 · Runs -->
+  <section data-fig="ess-runs">
+    <div class="frame">
+      <div class="frametitle"><h2>Stage 2: One script, several runs</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figside">
+          <div class="figwrap"><div class="figmount"></div></div>
+          <div class="side">
+            <ul class="blist">
+              <li>The AI agent works only from the specification card, without access to the published paper, its supplementary material or its code.</li>
+              <li>Iteration 0 implements the card exactly as written; further iterations may only revise entries the card marks as inferred, never just to move the estimate closer to the original one.</li>
+              <li>The script of the last iteration is run on the holdout rounds; the AI tool may only correct errors that prevent it from running.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <aside class="notes">
+      Stage 2 agents are Claude Opus 5.5 at high effort, one study per agent, at most five at a time. The recreation is
+      estimated in the ESS rounds and countries of the original analysis; the AI tool stops when it judges the estimate close
+      enough or when no inferred entry could account for the gap. Studies whose recreated coefficient or t/z-value deviates
+      from the original by more than 50% are excluded. The replication pools all holdout rounds, with round fixed effects
+      where the original used a single round, and is also run in each holdout round separately (input to the heterogeneity
+      test). Holdout rounds were fixed in Stage 1: every later round in which the outcome, the focal regressor and every
+      control were asked. Rounds 1 to 4 are an example.
+    </aside>
+  </section>
+
+  <!-- Stage 2 · Indicators -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Stage 2: Reproducibility and replicability indicators</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li><b>Recreate reproducibility</b>: the key estimate recreated in the ESS rounds and countries of the original analysis, from the specification card <span class="cite">(Dreber &amp; Johannesson, 2025)</span>.</li>
+          <li><b>Direct replicability</b>: the same analysis in all ESS rounds after the latest round used in the original article, up to round 11 (2023/24).</li>
+          <li>Test statistics converted to a pseudo Cohen’s <i>d</i> <span class="cite">(Szucs &amp; Ioannidis, 2017)</span>:</li>
+        </ul>
+        <div class="formula"><i>d</i> = <span class="frac"><span>2<i>t</i></span><span>√<i>n</i></span></span></div>
+        <ul class="blist">
+          <li><b>Main outcomes</b>: the replication-to-original and the replication-to-recreation relative effect sizes.</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      The replication-to-original relative effect size equals the product of the recreation-to-original and the
+      replication-to-recreation relative effect sizes: it captures the total deviation from the original estimate, whereas the
+      replication-to-recreation effect size isolates the change from running the same analysis on later ESS rounds. The
+      relative effect-size indicators incorporate both false-positive original results and original effect-size inflation and
+      are unaffected by replication power; the significance indicators depend on power and serve as robustness tests.
+      With a continuous key regressor, the pseudo d corresponds to about two times a standardized beta (Gelman 2008).
+      Outliers in the relative replication effect sizes are excluded with Tukey's fences (3 times the IQR).
+    </aside>
+  </section>
+
+  <!-- Stage 2 example: recreation and replication card of pilot paper S6350 (pages: assets/cards, js/figures/cards.js) -->
+  <section data-fig="ess-card" data-fig-opts='{"card":"result","steps":9}'>
+    <div class="frame">
+      <div class="frametitle"><h2>Stage 2: Recreation and replication card</h2><span class="ft-cite">Pilot study: von dem Knesebeck &amp; Geyer (2007), <i>BMC Public Health</i></span><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" style="display:none"></div>
+    <div class="fragment" data-figstep="5" style="display:none"></div>
+    <div class="fragment" data-figstep="6" style="display:none"></div>
+    <div class="fragment" data-figstep="7" style="display:none"></div>
+    <div class="fragment" data-figstep="8" style="display:none"></div>
+    <div class="fragment" data-figstep="9" style="display:none"></div>
+    <aside class="notes">
+      Each click scrolls the card down by less than one screen; the mouse wheel also scrolls. Same pilot paper, recreated
+      from the specification card alone (iteration 0 only). Original: odds ratio 5.03, 95% CI [2.54, 9.95]. Recreation in
+      round 1: 5.22 [2.71, 10.07], N = 1,204. Replication, rounds 2 to 11 pooled: 2.60 [1.89, 3.58], N = 14,364,
+      significant at the 5% level in the direction of the original. Relative effect sizes (pseudo d): replication to
+      original 0.36 (original d on the recreation's N, because the published N is the total over the 22 country models),
+      replication to recreation 0.34. Round by round the odds ratios range from 1.74 to 8.68. From round 5 education is
+      edulvlb, and from round 6 the confidant item asks how many people one can discuss intimate matters with, dichotomised
+      at none versus any. Pilot paper, excluded from all analyses.
+    </aside>
+  </section>
+
+  <!-- 37 · Hypotheses -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Primary hypotheses</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <table class="booktabs wide" style="font-size:.62em">
+          <tr><th>Hypothesis</th><th class="l">Test</th></tr>
+          <tr><td>1a, 1b: replication effect sizes are systematically lower than the original (a) and the recreated (b) effect sizes</td><td class="l">one-sample <i>t</i>-test of the mean relative effect size against 1</td></tr>
+          <tr><td>2: replicability varies between fields</td><td class="l">OLS on six fields, joint Wald test</td></tr>
+          <tr><td>3: replicability increases with publication year</td><td class="l">OLS on publication year</td></tr>
+          <tr><td>4: replicability is higher for studies with a lower original <i>p</i>-value</td><td class="l">OLS on an indicator for original <i>p</i> &lt; 0.005</td></tr>
+          <tr><td>5: replicability varies with the impact factor of the journal</td><td class="l">OLS on impact factor quartiles, joint Wald test</td></tr>
+          <tr><td>6: citations of articles vary with replicability</td><td class="l">OLS of Google Scholar citations on the relative effect size</td></tr>
+          <tr><td>7: there is heterogeneity in effect size estimates over time</td><td class="l">round-by-round random-effects meta-analyses, global <i>Q</i>-test</td></tr>
+        </table>
+        <div class="stmt p3"><i>p</i> &lt; 0.005 for “statistically significant” results and <i>p</i> &lt; 0.05 for “suggestive evidence” <span class="cite">(Benjamin et al., 2018)</span>; all tests two-sided.</div>
+      </div>
+    </div>
+    <aside class="notes">
+      Hypotheses 2 to 6 use the replication-to-original relative effect size, control for field and include publication year
+      fixed effects where specified, with HC1 standard errors. Fields: Political science 175, Sociology 150, Other 112,
+      Medical and health sciences 66, Economics and business 64, Psychology and cognitive sciences 36. Impact factor quartiles:
+      274 Q1, 208 Q2, 81 Q3, 20 Q4, 20 without an impact factor. 464 of the 603 key estimates have p &lt; 0.005. Citations as of
+      4 November 2026. Hypothesis 7 uses studies with at least three replication rounds (metafor, REML, Q-profile intervals).
+      Secondary hypotheses repeat the tests for recreate reproducibility. Robustness tests: indicators from sources outside the
+      ESS, countries dropped from the recreation, natural effect-size units.
+    </aside>
+  </section>
+
+  <!-- ==================== CLOSING ==================== -->
+  <section data-no-chrome>
+    <div class="standout-slide">
+      <h1>Thank you</h1>
+      <div class="so-sub">armando.holzknecht@uibk.ac.at</div>
+      <div class="so-lic">Slides licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · prepared with the help of AI (Claude, Anthropic)</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>References</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody top">
+        <div class="refs-grid" id="refsMount"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>References</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody top">
+        <div class="refs-grid" id="refsMount2"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Disclaimer</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="stmt" style="font-size:.8em">
+          <p>This presentation was prepared with the help of AI: Claude (Anthropic) wrote the HTML, CSS and JavaScript, laid out the slides and redrew the figures from the papers’ data and published figures. The slide text follows the wording of the underlying manuscripts and pre-analysis plans; the speaker notes are AI-generated and may contain errors.</p>
+          <p style="margin-top:.7em">The publications and pre-analysis plans are authoritative: where the slides or notes differ from them, the publications prevail, and the papers, not the slides, should be cited. The author is responsible for the content.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">
+      Last slide, for the web version: the deck was built with Claude (Anthropic) under my direction, the speaker notes are
+      AI-generated, and the papers and pre-analysis plans are the authoritative source for every result shown.
+    </aside>
+  </section>
+
+  </div><!-- /.slides -->
+  <div class="deck-header"></div>
+  <div class="deck-footer">
+    <span class="ft-title">Armando Holzknecht · Research seminar, MBS School of Business</span>
+    <span class="ft-page"></span>
+  </div>
+</div><!-- /.reveal -->
+
+<script src="js/core.js"></script>
+<script src="js/data.js"></script>
+<script src="js/figures/deco.js"></script>
+<script src="js/figures/mdc_forest.js"></script>
+<script src="js/figures/co2_policy.js"></script>
+<script src="js/figures/co2_fig1.js"></script>
+<script src="js/figures/co2_heat.js"></script>
+<script src="js/figures/co2_fig4.js"></script>
+<script src="js/figures/co2_fig5.js"></script>
+<script src="js/figures/llm.js"></script>
+<script src="js/figures/ess.js"></script>
+<script src="js/figures/cards.js"></script>
+<script src="js/figures/muravyev.js"></script>
+<script src="lib/reveal.js"></script>
+<script src="lib/plugin/notes/notes.js"></script>
+<script>
+  var DECK_TITLE = 'Armando Holzknecht · Research seminar, MBS School of Business';
+  var PRINT = /print-pdf/.test(location.search);
+  var SNAP = /snapshot=1/.test(location.search);
+  var QA = (location.search.match(/qa=(\d+)/) || [])[1];
+  if (QA != null) PSD.qaStatic = true;
+  var deck = new Reveal({
+    width:1280, height:720, margin:0, minScale:0.2, maxScale:2.0,
+    hash:true, slideNumber:false, controls:true, progress:false,
+    transition: QA != null ? 'none' : 'slide', transitionSpeed:'default', backgroundTransition:'fade',
+    pdfSeparateFragments:false, pdfMaxPagesPerSlide:1, scrollActivationWidth:null,
+    plugins:[ RevealNotes ]
+  });
+  window.deck = deck;
+  PSD.initDriver(deck);
+
+  function startDeck(){
+    if (PSD.llmHtml) PSD.llmHtml();
+    PSD.prepareFragments();
+    deck.initialize().then(function(){
+      populateRefs();
+      if (SNAP) { buildSnapshot(); return; }
+      initChrome();
+      if (QA != null) {
+        document.documentElement.classList.add('qa-static');
+        deck.slide(+QA, 0, 99);
+        deck.layout();
+      }
+    });
+  }
+  if (document.fonts && document.fonts.load) {
+    Promise.all([
+      document.fonts.load('300 16px "Fira Sans"'),
+      document.fonts.load('400 16px "Fira Sans"'),
+      document.fonts.load('500 16px "Fira Sans"'),
+      document.fonts.load('600 16px "Fira Sans"'),
+      document.fonts.load('italic 400 16px "Fira Sans"')
+    ]).then(startDeck, startDeck);
+  } else { startDeck(); }
+
+  function initChrome(){
+    var secs = document.querySelectorAll('.reveal > .slides > section');
+    var total = secs.length;
+    var ff = document.querySelector('.reveal > .deck-footer');
+    var hh = document.querySelector('.reveal > .deck-header');
+    function sizeFooter(){
+      var scale = (deck.getScale && deck.getScale()) || 1;
+      var hoff = Math.max(0, (window.innerWidth - 1280 * scale) / 2);
+      ff.style.height = (30 * scale) + 'px';
+      ff.style.paddingLeft = (hoff + 56 * scale) + 'px';
+      ff.style.paddingRight = (hoff + 56 * scale) + 'px';
+      ff.style.fontSize = (13 * scale) + 'px';
+      var voff = Math.max(0, (window.innerHeight - 720 * scale) / 2);
+      hh.style.height = (voff + 1) + 'px';
+    }
+    function update(){
+      var cur = deck.getCurrentSlide ? deck.getCurrentSlide() : null;
+      if (!cur) return;
+      var idx = Array.prototype.indexOf.call(secs, cur);
+      var frac = total > 1 ? (idx / (total - 1)) : 0;
+      document.querySelectorAll('.ftprog > span, .secprog > span').forEach(function(sp){ sp.style.width = (frac * 100) + '%'; });
+      if (cur.hasAttribute('data-no-chrome')) { ff.classList.remove('show'); hh.classList.remove('show'); return; }
+      ff.querySelector('.ft-page').textContent = (idx + 1) + ' / ' + total;
+      ff.classList.add('show'); hh.classList.add('show'); sizeFooter();
+    }
+    deck.on('slidechanged', update);
+    deck.on('resize', function(){ sizeFooter(); });
+    window.addEventListener('resize', sizeFooter);
+    update();
+  }
+
+  function buildSnapshot(){
+    var secs = document.querySelectorAll('.reveal > .slides > section');
+    var total = secs.length;
+    document.documentElement.classList.add('qa-static', 'psd-snapshot', 'print-pdf');
+    PSD.buildAll();
+    secs.forEach(function(sec, idx){
+      sec.querySelectorAll('.fragment').forEach(function(f){ f.classList.add('visible'); });
+      sec.style.display = 'block'; sec.style.top = '0px'; sec.style.left = '0px';
+      sec.style.transform = 'none'; sec.style.opacity = '1'; sec.style.visibility = 'visible';
+      var frac = total > 1 ? (idx / (total - 1)) : 0;
+      sec.querySelectorAll('.ftprog > span, .secprog > span').forEach(function(sp){ sp.style.width = (frac * 100) + '%'; });
+      if (idx > 0 && !sec.hasAttribute('data-no-chrome') && !sec.querySelector('.print-footer')) {
+        var f = document.createElement('div');
+        f.className = 'print-footer';
+        f.innerHTML = '<span>' + DECK_TITLE + '</span><span class="pf-page">' + (idx + 1) + ' / ' + total + '</span>';
+        (sec.querySelector('.frame') || sec).appendChild(f);
+      }
+      sec.querySelectorAll('.figwrap, .figwrap .figmount').forEach(function(el){
+        var h = el.getBoundingClientRect().height;
+        if (h > 0) { el.style.flex = '0 0 auto'; el.style.height = h + 'px'; el.style.minHeight = '0'; }
+      });
+      sec.querySelectorAll('.figwrap .figmount > svg').forEach(function(svg){
+        var r = svg.getBoundingClientRect();
+        if (r.height > 0) { svg.style.width = r.width + 'px'; svg.style.height = r.height + 'px'; }
+      });
+    });
+    var sl = document.querySelector('.reveal .slides');
+    if (sl) { sl.style.transform = 'none'; sl.style.left = 'auto'; sl.style.top = 'auto'; }
+    document.documentElement.setAttribute('data-snapshot-ready', String(total));
+  }
+  function populateRefs(){
+    var m = document.getElementById('refsMount'), m2 = document.getElementById('refsMount2');
+    if (!m || !PSD.data || !PSD.data.references || m.childElementCount) return;
+    var items = PSD.data.references.items, half = m2 ? Math.ceil(items.length / 2) : items.length;
+    items.forEach(function(r, i){
+      var d = document.createElement('div'); d.className = 'ref';
+      d.innerHTML = '<span class="rn">' + (i + 1) + '</span><span>' + r.full + '</span>';
+      (i < half ? m : m2).appendChild(d);
+    });
+  }
+</script>
+</body>
+</html>
