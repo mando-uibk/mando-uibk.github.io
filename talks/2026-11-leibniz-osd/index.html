@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Large Language Models as Synthetic Populations — Leibniz Open Science Day 2026</title>
+<meta name="author" content="Armando Holzknecht, Christian König-Kersting, David Valenta">
+<link rel="stylesheet" href="lib/reset.css">
+<link rel="stylesheet" href="lib/reveal.css">
+<link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+  <!-- ============ TITLE ============ -->
+  <section data-no-chrome>
+    <div class="title-slide">
+      <div class="t-logos">
+        <img src="assets/logos/uibk.svg" alt="University of Innsbruck">
+        <img src="assets/logos/ju.svg" alt="Jönköping University" class="ju">
+        <img src="assets/logos/uottawa.png" alt="University of Ottawa">
+        <img src="assets/logos/i4r.svg" alt="Institute for Replication">
+      </div>
+      <div class="title-main">
+        <h1>Large Language Models as Synthetic Populations: Quantifying Between-LLM Heterogeneity</h1>
+        <div class="title-rule"></div>
+        <div class="title-sub">Leibniz Open Science Day 2026 · Berlin · 17 November 2026</div>
+        <div class="title-author">Armando Holzknecht<sup>1</sup> · Christian König-Kersting<sup>2</sup> · David Valenta<sup>3</sup></div>
+        <div class="title-inst"><sup>1</sup> Department of Banking and Finance, University of Innsbruck<br>
+          <sup>2</sup> Jönköping International Business School, Jönköping University<br>
+          <sup>3</sup> Department of Economics, University of Ottawa; Institute for Replication</div>
+        <div class="title-osf">Materials and code: <a href="https://osf.io/k7fnh">osf.io/k7fnh</a></div>
+      </div>
+    </div>
+    <aside class="notes">
+      [0:20] Title. Name the three of us. The study was pre-registered on OSF; the data were collected between
+      29 October and 3 November 2026, and everything you show today is the real data, analysed as pre-registered.
+      Session 3, "AI in Research - Opportunities, Reliability &amp; Epistemic Risks".
+    </aside>
+  </section>
+
+  <!-- ============ 1 · Synthetic participants ============ -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Synthetic participants</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>Large language models have rapidly become a <b>standard research instrument</b> in the social and behavioural sciences.</li>
+          <li>A growing body of work uses them as “synthetic participants” to generate survey responses and experimental decisions <span class="cite">(Argyle et al., 2023; Dillion et al., 2023; Cui et al., 2025)</span>,</li>
+          <li>to replicate stylised facts of human behaviour in economic games <span class="cite">(Polachek et al., 2025; Akata et al., 2025; Pal et al., 2026)</span>,</li>
+          <li>and to <b>forecast</b> how human samples will respond to a treatment before the human study is run <span class="cite">(Hewitt et al., 2026)</span>.</li>
+          <li>The appeal is straightforward: synthetic samples are fast, cheap and replenishable, which is particularly attractive for pre-testing policy interventions that are expensive, slow or politically costly to field.</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      [0:50] Set the scene. Three uses: generate responses, replicate stylised facts, forecast human results. Then the
+      appeal - fast, cheap, replenishable. Do not dwell on the citations; the point is that this is now normal practice.
+      THE PAPERS, one line each, if anyone asks.
+      - Argyle et al. (2023), Political Analysis: "Out of one, many" - conditioning GPT-3 on demographic backstories
+        reproduces US survey response distributions; the paper that made "silicon sampling" a method.
+      - Dillion et al. (2023), TiCS: can AI language models replace human participants? Reports a very high correlation
+        between GPT moral judgements and human ratings, and still argues against replacement.
+      - Cui et al. (2025), Nature Computational Science: large-scale LLM replication of scenario-based experiments in
+        psychology and management.
+      - Polachek et al. (2025), SSRN: ultimatum-game responders, human vs LLM.
+      - Akata et al. (2025), Nature Human Behaviour: LLMs in repeated games - they cooperate in some, fail at
+        coordination in others.
+      - Pal et al. (2026), PNAS Nexus: LLMs instantiate evolutionarily robust cooperation strategies.
+      - Hewitt et al. (2026), Nature: LLMs predict the results of social science experiments - the forecasting use
+        case, and the strongest claim of the set.
+    </aside>
+  </section>
+
+  <!-- ============ 2 · Model dependence ============ -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Model dependence</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>LLM responses to <i>identical</i> prompts vary substantially across providers, model versions and time <span class="cite">(Bisbee et al., 2024; Sclar et al., 2024)</span>.</li>
+          <li>Some authors have responded by running a handful of models and checking whether the headline finding survives.</li>
+          <li>What is missing is a <b>quantitative measure</b> of how much of the variation in <i>effect sizes</i> is attributable to the choice of the model.</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      [1:00] The gap. Emphasise the word "effect sizes" - not response distributions, not accuracy: the estimand
+      researchers actually report. Then the implication, which the closing frame states in full: when synthetic
+      pre-tests inform whether interventions are fielded, scaled or abandoned, substantive conclusions may become partly
+      contingent on the provider or model selected.
+      - Bisbee et al. (2024), Political Analysis: "Synthetic replacements for human survey data? The perils of LLMs" -
+        ANES replication; GPT gets the means roughly right but the variance badly wrong, and answers move with the model
+        version.
+      - Sclar et al. (2024): formatting sensitivity - separators, spacing and ordering alone move performance
+        substantially on an otherwise identical task.
+    </aside>
+  </section>
+
+  <!-- ============ 3 · Population heterogeneity ============ -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Population heterogeneity</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>Holzmeister et al. (2024) decompose heterogeneity in effect-size estimates into <b>population</b>, <b>design</b> and <b>analytical</b> sources, each isolated by holding the other two fixed.</li>
+          <li>Following this framework, we argue that LLM-induced heterogeneity can be understood as a form of <b>population heterogeneity</b>: the design (one prompt per condition) and the analysis (one estimation path) are held fixed.</li>
+          <li>Each model constitutes a potential <b>synthetic population</b> from which researchers can sample; as in many-labs studies, each LLM serves as an independently collected study population.</li>
+        </ul>
+        <div class="stmt p2 fragment beamer"><b>Hypothesis 1 (pre-registered):</b> There is significant between-LLM heterogeneity (<i>τ</i> &gt; 0) in effect sizes.</div>
+        <p class="lead fragment beamer mt">Candidate variables that may explain this heterogeneity, such as the model’s provider, are assessed in clearly labeled exploratory analyses.</p>
+      </div>
+    </div>
+    <aside class="notes">
+      [1:05] The framing that makes the project a measurement exercise. Stress the isolation logic: design and analysis
+      held fixed by construction, so tau can directly be interpreted as population heterogeneity. Then H1 - and be
+      explicit that everything about providers is exploratory.
+    </aside>
+  </section>
+
+  <!-- ============ 4 · Design ============ -->
+  <section data-fig="llm-design">
+    <div class="frame">
+      <div class="frametitle"><h2>Design</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <aside class="notes">
+      [1:00] The design in one picture: Case 1 on arrival, Case 2 on the click. Case 1 is a conceptual replication with
+      a human benchmark; Case 2 is a direct replication we extend with the trust game. Two treatments x three games plus
+      one treatment x two outcomes = eight cells, each of which becomes one random-effects meta-analysis over the panel.
+    </aside>
+  </section>
+
+  <!-- ============ 5 · Case 1 ============ -->
+  <section data-fig="llm-prompts">
+    <div class="frame">
+      <div class="frametitle"><h2>Case 1: Nudging intervention for Carbon Pricing Support</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      [0:55] The concrete manipulation. First the part both arms share, in one breath: a welcome and consent block -
+      project description, compensation, confidentiality - then general information saying the study has one survey
+      question and one incentivized decision task, and then the climate introduction, "A Warming Planet", on the costs
+      of greenhouse-gas emissions. That is the whole common stem. Then point at the three orange blocks: that is the
+      entire treatment. Two outcomes per respondent - stated support on a five-point scale, revealed support as a
+      donation out of a potential 200-euro lottery win. 200 observations per arm, 400 per model. The human benchmark is
+      a representative Austrian sample of n = 1,600, and both prompts reproduce the welcome information, the baseline
+      climate text, the tax information text, the stated-support question and the incentivized donation task of
+      Schwaiger et al. (2026).
+    </aside>
+  </section>
+
+  <!-- ============ 6 · Case 2 ============ -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Case 2: First-Mover actions in Classic Economic Games</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>Dictator, ultimatum and trust games. The DG and UG prompts are verbatim from Polachek et al. (2026); the trustor prompt is our extension.</li>
+          <li>Two binary treatments crossed orthogonally:
+            <ul class="blist">
+              <li><b>Wealth</b> — stated initial endowment of 493 vs. 0 Rupees;</li>
+              <li><b>Human emphasis</b> — an added “Respond as if you are human.” instruction.</li>
+            </ul>
+          </li>
+          <li>Five-level stake ladder (20 to 200,000 Rupees) as a covariate ⇒ 20 cells × 100 observations = 2,000 per LLM and game.</li>
+        </ul>
+        <div class="formula llm-eq">Proportion<sub><i>i</i></sub> = α + β<sub>1</sub> log(Stakes<sub><i>i</i></sub>) + β<sub>2</sub> Wealth<sub><i>i</i></sub> + β<sub>3</sub> HumanEmphasis<sub><i>i</i></sub> + ε<sub><i>i</i></sub></div>
+        <ul class="blist">
+          <li>β<sub>2</sub> and β<sub>3</sub> are the two focal effects; each game is analysed as a separate meta-analysis.</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      [0:55] Case 2 in one breath. The point of the two treatments is that both are pure framing - the wealth line is a
+      stated initial endowment, and the human-emphasis sentence adds nothing informational. Note the trust game is our
+      addition.
+    </aside>
+  </section>
+
+  <!-- ============ 7 · Estimation pipeline ============ -->
+  <section data-fig="llm-pipeline">
+    <div class="frame">
+      <div class="frametitle"><h2>Estimation pipeline: one model</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      [1:50] THE CORE FRAME - take your time; the whole pipeline is on screen at once.
+      (1) one model; (2) the model is a potential synthetic population, and the N = 400 responses are a sample from
+      it; (3) half get control, half get treatment - randomisation is by construction, we simply send 200 of each;
+      (4) the two prompts, differing only in the three tax blocks; (5) every query returns both outcomes - stated
+      support on 1 to 5, and the donation out of the 200-euro lottery win; (6) the two response distributions and the
+      shift between their means; (7) one OLS per outcome, with HC3 robust standard errors; (8) divide by the pooled SD -
+      Huber et al. (2023) - and you have Cohen's d with its SE.
+      These are the real responses of gpt-5-2025-08-07: the information treatment LOWERS its stated support,
+      d = -0.46. In the forest plot of the results you will find it as one of the rows near the top. The donation runs
+      through the identical path (d = -0.48 for this model).
+      Say clearly: nothing here is a chat session - stateless, single-turn API calls at provider defaults, no system
+      prompt, no conversation history, no tools.
+    </aside>
+  </section>
+
+  <!-- ============ 8 · LLM panel ============ -->
+  <section data-fig="llm-panel">
+    <div class="frame">
+      <div class="frametitle"><h2>LLM panel</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <aside class="notes">
+      [0:45] The panel, and the honest caveat that comes with it: this market turns over weekly. Of the 57 registered
+      models, ten were no longer accessible at data collection (four Gemma 3, three Llama 3, gpt-3.5-turbo-0125,
+      gpt-4-0613, Qwen3.5-Flash). At the same time 16 models were released after the pre-registration, which we added -
+      in green, marked with a dagger. The ten registered models no longer available are shown in red. 63 LLMs from ten
+      providers in total, 47 of them registered.
+      The deviation to state openly: the registration made the 47 accessible registered models the confirmatory panel.
+      Because the added models include the current frontier models researchers are most likely to use, the main
+      analysis runs on all 63; restricted to the 47 registered models, homogeneity is likewise rejected in all eight
+      cells (tau 0.21 to 0.53).
+      Selection criteria, if asked: accessible through a stable API, not among the most expensive models, spanning
+      large and small, current and older models from every major provider.
+    </aside>
+  </section>
+
+  <!-- ============ 9 · Data collection ============ -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Data collection</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>Data collection took place between 29 October and 3 November 2026.</li>
+          <li>All analyses are based on the full panel of <b>63 LLMs from ten providers</b>, with the ex-post added models marked with †.</li>
+          <li>Overall, we collected <b>25,200 responses in Case 1</b> (400 per LLM) and <b>378,000 responses in Case 2</b> (2,000 per LLM and game).</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      [0:45] The first paragraph of the results. If asked about exclusions: rule (i), responses that are not a sensible
+      answer, was hardly binding - no response in Case 1 and 18 of 378,000 in Case 2. Rule (ii) was binding for 38
+      model-cell combinations, in which a model gave the identical answer in every query of both conditions, so Cohen's
+      d is undefined; these models are shown in the forest plots with an asterisk at zero and left out of the
+      meta-analyses.
+    </aside>
+  </section>
+
+  <!-- ============ 10 · Results: carbon tax (paper Figure 1) ============ -->
+  <section data-fig="llm-forest-ct" data-no-chrome>
+    <div class="frame">
+      <div class="framebody bare">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      [1:20] Figure 1 of the paper. Each line is one LLM at d plus or minus 1.96 SE, sorted by the estimate; a dagger
+      marks a model added after the pre-registration; the asterisked rows at zero are the rule-(ii) exclusions; the
+      black diamond is the REML pooled effect (mu); the blue row is the human data. The curve at the bottom is the
+      estimated distribution of true effects across LLMs, theta ~ N(mu, tau^2); the dashed curves use the bounds of the
+      95% CI of tau, and the shares give how many true effects lie below and above zero.
+      Stated support: tau = 0.34, Q(47) = 587, p &lt; 0.001. Per-LLM effects from d = -0.56 (gpt-5.6-luna) to 1.44
+      (ministral-14b-2512); 12 significantly positive, eight significantly negative. The pooled effect is small and not
+      different from zero, d = 0.09.
+      Revealed support: tau = 0.39, Q(57) = 938, p &lt; 0.001; from -1.48 (gemini-3.5-flash-lite) to 0.86
+      (ministral-3b-2512). Pooled d = -0.14: suggestive evidence that the information treatment, on average across
+      LLMs, reduces donations (p = 0.008).
+      The human effect, estimated with the identical pipeline, is small and not significant for both outcomes (d = 0.09
+      and 0.02). For stated support the pooled LLM effect coincides almost exactly with it - but 15 of 48 models
+      (stated) and 15 of 58 (revealed) yield an effect that differs significantly from the human one. These comparisons
+      are exploratory; we do not rank models by proximity to humans.
+    </aside>
+  </section>
+
+  <!-- ============ 11 · Results: wealth (paper Figure 2) ============ -->
+  <section data-fig="llm-forest-wealth" data-no-chrome>
+    <div class="frame">
+      <div class="framebody bare">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      [1:00] Three games on a common axis. tau = 0.29 (DG), 0.24 (UG), 0.32 (TG); homogeneity rejected in all three.
+      The pooled wealth effects are small: close to zero in the DG, suggestive negative in the UG (d = -0.08,
+      p = 0.008), significantly negative in the TG (d = -0.15). These small averages mask effects of opposite signs: in
+      the trust game eight LLMs are significantly positive and 31 significantly negative, from d = -1.53
+      (claude-fable-5-1) to 0.48 (llama-4-maverick). The line to say: depending on the LLM queried, a researcher would
+      conclude that higher wealth makes first movers significantly more generous, significantly less generous, or
+      leaves their behaviour unaffected.
+    </aside>
+  </section>
+
+  <!-- ============ 12 · Results: human emphasis (paper Figure 3) ============ -->
+  <section data-fig="llm-forest-human" data-no-chrome>
+    <div class="frame">
+      <div class="framebody bare">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      [1:00] One added sentence - "Respond as if you are human". Unlike wealth, it increases the share sent on average,
+      significantly in all three games (d = 0.32, 0.26, 0.16). Most models move in this direction, but by very
+      different amounts: in the dictator game from d = -0.31 (gpt-4o-mini) to 2.49 (llama-4-maverick). The dictator
+      game has the largest heterogeneity of all eight cells, tau = 0.50; UG 0.38, TG 0.21. With one model you would
+      have reported one point on this line, and nothing about how far it could have moved had a different LLM been
+      selected.
+    </aside>
+  </section>
+
+  <!-- ============ 13 · Meta-analysis summary ============ -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Meta-analysis summary</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div data-llm-metatable></div>
+      </div>
+    </div>
+    <aside class="notes">
+      [1:00] The deliverable of the confirmatory analysis: one column per cell, one tau each, full panel. Do not read
+      it out. Point at the tau row and the p row. The study-level criterion: H1 is supported within a case if Q rejects
+      at p &lt; 0.005 in both cells of Case 1 and in at least four of six cells of Case 2 - it rejects in all eight.
+      Robustness, if asked: the 47 registered models only - all eight rejected, tau 0.21 to 0.53; the balanced panel of
+      32 registered models with a defined d in every cell - tau 0.19 to 0.40; pooling the unstandardised OLS
+      coefficients on the raw scale - all eight rejected. The lower bound of the 99.5% CI for tau exceeds 0.06 in every
+      cell, and the 95% prediction interval includes zero in every cell.
+    </aside>
+  </section>
+
+  <!-- ============ 14 · Exploratory moderation: carbon tax ============ -->
+  <section data-fig="llm-mod-ct">
+    <div class="frame">
+      <div class="frametitle"><h2>Exploratory moderation: carbon tax</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      [0:50] What explains the spread? Mixed-effects meta-regressions with the provider as moderator, clearly
+      exploratory. Each row is the subgroup-pooled effect of one provider; the grey line the overall pooled effect. For
+      neither Case 1 outcome does the provider explain any share of the between-LLM variance: Q_M(9) = 5.62, p = 0.777
+      for stated support and Q_M(9) = 4.23, p = 0.896 for revealed support; R2_meta = 0% in both.
+    </aside>
+  </section>
+
+  <!-- ============ 15 · Exploratory moderation: wealth ============ -->
+  <section data-fig="llm-mod-wealth">
+    <div class="frame">
+      <div class="frametitle"><h2>Exploratory moderation: wealth effect</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      [0:40] The wealth effect: the provider explains no significant share of the heterogeneity in any of the three
+      games (all p of 0.33 or more).
+    </aside>
+  </section>
+
+  <!-- ============ 16 · Exploratory moderation: human emphasis ============ -->
+  <section data-fig="llm-mod-human">
+    <div class="frame">
+      <div class="frametitle"><h2>Exploratory moderation: human emphasis</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      [0:50] The human-emphasis treatment is the only treatment for which the provider explains a substantial share of
+      the heterogeneity - the treatment that directly addresses how the model should portray itself. Significant in the
+      ultimatum game (Q_M(9) = 24.69, p = 0.003, R2_meta = 21.3%) and in the trust game (Q_M(9) = 28.46, p &lt; 0.001,
+      25.9%); suggestive in the dictator game (Q_M(9) = 22.02, p = 0.009, 18.2%). In the ultimatum game the
+      subgroup-pooled effects range from d = 0.06 for OpenAI to 0.97 for Meta. Overall, model-specific idiosyncrasies
+      appear to dominate systematic differences between providers.
+    </aside>
+  </section>
+
+  <!-- ============ 17 · Conclusion ============ -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Conclusion</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>We quantify how much the effect sizes of synthetic pre-tests depend on which model is queried: each of 63 LLMs from ten providers serves as an independently collected study population, and we pool the per-LLM effects of two cases (eight treatment–outcome cells) in random-effects meta-analyses.</li>
+          <li>Homogeneity is rejected in every cell. The estimates of <i>τ</i> range from 0.21 to 0.50, with a <b>median of <span data-llm-medtau>0.33</span></b>, which is about 5.5 times the median between-population heterogeneity of <i>τ</i> ≈ 0.06 reported by Holzmeister et al. (2024).</li>
+          <li>An effect estimated from a single LLM should not be interpreted as an estimate of “the” synthetic effect: the uncertainty attributable to model choice is often larger than the sampling uncertainty within a model.</li>
+          <li>Synthetic pre-tests should be based on a <b>broad panel of models</b>, with the between-model variation reported alongside the pooled effect.</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      [1:00] Close on the findings, then the implications. The median tau is about five times the median heterogeneity
+      Holzmeister et al. report across human populations: if each LLM is one synthetic population, these populations
+      differ from one another more than human populations do. That is the missing error bar of single-model studies.
+      Our tau estimates can serve as a reference for uncertainty assessments and power calculations, e.g. reported as a
+      prediction interval.
+      LIMITATIONS, if asked: the panel is a snapshot of a rapidly changing market; each model was queried at provider
+      defaults, single-turn, with a single prompt per condition - so prompt wording, decoding parameters or persona
+      conditioning would likely add to the uncertainty we document; and the Case 2 prompts and results are published,
+      so they may be in the training data (this does not affect the estimand).
+      ANTICIPATED QUESTIONS.
+      - "Your null is a straw man - nobody thinks tau is exactly zero." Agree: the interesting quantity is the
+        magnitude of tau and the width of the prediction interval, not the rejection. The design has no
+        same-model-twice control, so within-model run-to-run instability is not separated from between-model variation.
+      - "Is it just response bias?" A directional bias that shifts a model's answers uniformly in both conditions would
+        cancel out in a treatment contrast (cf. Meyer et al. 2026) - yet we still find large between-model differences
+        in treatment effects.
+      - "What are the API settings?" Provider defaults throughout, one stateless single-turn call per observation, no
+        system prompt, no tools.
+      - "Which model is closest to humans?" We deliberately make no such claim; the human benchmark is depicted, the
+        comparisons are exploratory.
+      - "What next?" Varying prompts and models in a crossed design, to weigh model choice against prompt choice; and
+        model characteristics such as size, release date or post-training that predict the response.
+    </aside>
+  </section>
+
+  <!-- ============ REFERENCES ============ -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>References</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody top">
+        <div class="refs-grid" id="refsMount"></div>
+      </div>
+    </div>
+    <aside class="notes">Backup. Do not present.</aside>
+  </section>
+
+  </div><!-- /.slides -->
+  <div class="deck-header"></div>
+  <div class="deck-footer">
+    <span class="ft-title">Holzknecht, König-Kersting &amp; Valenta · Leibniz Open Science Day 2026, Berlin</span>
+    <span class="ft-page"></span>
+  </div>
+</div><!-- /.reveal -->
+
+<script src="js/core.js"></script>
+<script src="js/data.js"></script>
+<script>
+  /* build/build_data.py writes window.DECK; the figure modules read PSD.data.llm */
+  PSD.data = { llm: window.DECK };
+</script>
+<script src="js/figures/llm.js"></script>
+<script src="lib/reveal.js"></script>
+<script src="lib/plugin/notes/notes.js"></script>
+<script>
+  var QA = (location.search.match(/qa=(\d+)/) || [])[1];
+  if (QA != null) PSD.qaStatic = true;
+  var deck = new Reveal({
+    width:1280, height:720, margin:0, minScale:0.2, maxScale:2.0,
+    hash:true, slideNumber:false, controls:true, progress:false,
+    transition: QA != null ? 'none' : 'slide', transitionSpeed:'default', backgroundTransition:'fade',
+    pdfSeparateFragments:false, pdfMaxPagesPerSlide:1, scrollActivationWidth:null,
+    plugins:[ RevealNotes ]
+  });
+  window.deck = deck;
+  PSD.initDriver(deck);
+
+  function startDeck(){
+    if (PSD.llmHtml) PSD.llmHtml();
+    populateRefs();
+    PSD.prepareFragments();
+    deck.initialize().then(function(){
+      initChrome();
+      if (QA != null) {
+        document.documentElement.classList.add('qa-static');
+        deck.slide(+QA, 0, 99);
+        deck.layout();
+      }
+      document.body.dataset.ready = '1';
+    });
+  }
+  if (document.fonts && document.fonts.load) {
+    Promise.all([
+      document.fonts.load('300 16px "Fira Sans"'),
+      document.fonts.load('400 16px "Fira Sans"'),
+      document.fonts.load('500 16px "Fira Sans"'),
+      document.fonts.load('600 16px "Fira Sans"'),
+      document.fonts.load('italic 400 16px "Fira Sans"')
+    ]).then(startDeck, startDeck);
+  } else { startDeck(); }
+
+  function initChrome(){
+    var secs = document.querySelectorAll('.reveal > .slides > section');
+    var total = secs.length;
+    var ff = document.querySelector('.reveal > .deck-footer');
+    var hh = document.querySelector('.reveal > .deck-header');
+    function sizeFooter(){
+      var scale = (deck.getScale && deck.getScale()) || 1;
+      var hoff = Math.max(0, (window.innerWidth - 1280 * scale) / 2);
+      ff.style.height = (30 * scale) + 'px';
+      ff.style.paddingLeft = (hoff + 56 * scale) + 'px';
+      ff.style.paddingRight = (hoff + 56 * scale) + 'px';
+      ff.style.fontSize = (13 * scale) + 'px';
+      var voff = Math.max(0, (window.innerHeight - 720 * scale) / 2);
+      hh.style.height = (voff + 1) + 'px';
+    }
+    function update(){
+      var cur = deck.getCurrentSlide ? deck.getCurrentSlide() : null;
+      if (!cur) return;
+      var idx = Array.prototype.indexOf.call(secs, cur);
+      var frac = total > 1 ? (idx / (total - 1)) : 0;
+      document.querySelectorAll('.ftprog > span').forEach(function(sp){ sp.style.width = (frac * 100) + '%'; });
+      if (cur.hasAttribute('data-no-chrome')) { ff.classList.remove('show'); hh.classList.remove('show'); return; }
+      ff.querySelector('.ft-page').textContent = idx + ' / ' + (total - 2);   // title and references unnumbered
+      if (idx > total - 2) ff.querySelector('.ft-page').textContent = '';
+      ff.classList.add('show'); hh.classList.add('show'); sizeFooter();
+    }
+    deck.on('slidechanged', update);
+    deck.on('resize', function(){ sizeFooter(); });
+    window.addEventListener('resize', sizeFooter);
+    update();
+  }
+
+  function populateRefs(){
+    var m = document.getElementById('refsMount');
+    if (!m || !window.DECK || !DECK.references || m.childElementCount) return;
+    DECK.references.forEach(function(r, i){
+      var end = /[?!]$/.test(r.title) ? ' ' : '. ';
+      var d = document.createElement('div'); d.className = 'ref';
+      d.innerHTML = '<span class="rn">' + (i + 1) + '</span><span><b>' + r.authors + '</b> (' + r.year + '). ' +
+        r.title + end + (r.venue ? '<i>' + r.venue + '</i>.' : '') + '</span>';
+      m.appendChild(d);
+    });
+  }
+</script>
+</body>
+</html>
