@@ -182,7 +182,7 @@
     var CASES = [
       { name: 'Case 1 · Nudging intervention for Carbon Pricing Support', sub: 'conceptual replication · Schwaiger\u00a0et\u00a0al.\u00a0(2026)',
         treat: ['Information treatment'], out: ['Stated support', 'Revealed support'],
-        extra: 'Human benchmark: representative Austrian sample, n\u00a0=\u00a01,600',
+        extra: 'Human benchmark: representative Austrian sample, n\u00a0=\u00a0967',
         col: C.accent },
       { name: 'Case 2 · First-Mover actions in Classic Economic Games', sub: 'direct replication and extension · Polachek\u00a0et\u00a0al.\u00a0(2026)',
         treat: ['Wealth', 'Human emphasis'], out: ['Dictator', 'Ultimatum', 'Trust'],

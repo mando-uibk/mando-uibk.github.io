@@ -1007,10 +1007,10 @@ window.DECK = {
     }
    ],
    "human": {
-    "d": 0.09323189095962185,
-    "se": 0.058545305721660036,
-    "n": 1169,
-    "p": 0.11127818774782215
+    "d": 0.09993694027277446,
+    "se": 0.06442328078618262,
+    "n": 966,
+    "p": 0.12084057201130541
    }
   },
   {
@@ -1528,10 +1528,10 @@ window.DECK = {
     }
    ],
    "human": {
-    "d": 0.021849792849541805,
-    "se": 0.059339246236684975,
-    "n": 1138,
-    "p": 0.7127105103155245
+    "d": 0.05065236686127902,
+    "se": 0.06437969825405082,
+    "n": 967,
+    "p": 0.4314133200034463
    }
   },
   {
@@ -6049,8 +6049,8 @@ window.DECK = {
    "cite": "Schwaiger et al. (2026)",
    "authors": "Schwaiger, René, Benda, Julian, Blanco, Esther et al.",
    "year": "2026",
-   "title": "Salient carbon dividends are not enough to generate widespread support for carbon pricing",
-   "venue": "Unpublished manuscript and pre-analysis plan, University of Innsbruck. No DOI assigned"
+   "title": "Salient carbon dividends are not enough to generate widespread support for carbon pricing in Austria",
+   "venue": "Updated version 05.11.2026. Pre-registration"
   },
   {
    "key": "polacheketal2026",

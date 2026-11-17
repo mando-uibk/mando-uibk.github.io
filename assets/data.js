@@ -32,7 +32,7 @@
 window.SITE = {
   output: [
     { date: "2026-11", type: "Talk", title: "Large Language Models as Synthetic Populations: Quantifying Between-LLM Heterogeneity", detail: "with C. König-Kersting, D. Valenta · Leibniz Open Science Day 2026, Berlin",
-      links: [{ label: "slides", url: "talks/2026-11-leibniz-osd/" }, { label: "download", url: "talks/2026-11-leibniz-osd.zip" }, { label: "osf", url: "https://osf.io/k7fnh" }] },
+      links: [{ label: "slides", url: "talks/2026-11-leibniz-osd/" }, { label: "pdf", url: "talks/2026-11-leibniz-osd/Holzknecht_LeibnizOSD2026.pdf" }, { label: "download", url: "talks/2026-11-leibniz-osd.zip" }, { label: "osf", url: "https://osf.io/k7fnh" }] },
     { date: "2026-11", type: "Talk", title: "From carbon pricing support to AI in meta-science", detail: "Research seminar, MBS School of Business",
       links: [{ label: "slides", url: "talks/2026-11-mbs/" }, { label: "pdf", url: "talks/2026-11-mbs/Holzknecht_MBS_ResearchTalk.pdf" }, { label: "download", url: "talks/2026-11-mbs.zip" }] },
     { date: "2026-04", type: "Paper", title: "Fifty-five Crowdsourced Designs Assessing Carbon Pricing Support in the U.S.", detail: "with R. Schwaiger, J. Huber, E. Blanco, M. Kirchler + 100+ co-authors · #ManyDesignsCarbon · Nature Human Behaviour (forthcoming)", url: "https://doi.org/10.21203/rs.3.rs-8797610/v1", links: [{ label: "preprint", url: "https://doi.org/10.21203/rs.3.rs-8797610/v1" }, { label: "osf", url: "https://osf.io/ujvdn" }] },
