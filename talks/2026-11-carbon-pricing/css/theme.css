@@ -319,5 +319,5 @@ html.psd-snapshot .frame > .print-footer{position:static!important;flex:0 0 auto
 .qr-lab a{font-weight:500;}
 .qr-lab .fund{font-size:.85em;color:var(--muted);}
 /* logos on the opening section slide */
-.section-slide .sec-logos{position:absolute;right:84px;top:64px;display:flex;align-items:center;gap:40px;}
-.section-slide .sec-logos img{height:62px;width:auto;}
+.section-slide .sec-logos{position:absolute;right:84px;top:58px;display:flex;align-items:center;gap:48px;}
+.section-slide .sec-logos img{height:80px;width:auto;}
