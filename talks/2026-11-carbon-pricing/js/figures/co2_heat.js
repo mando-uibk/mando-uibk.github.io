@@ -1,6 +1,6 @@
 /* CO2 Austria - Figures 2 and 3: response distributions as heat-map tables (co2_fig2.json / co2_fig3.json).
    Cell fills, printed percentages and the outlined correct responses are taken from the vector PDF.
-   Both figures: one quadrant per step (0 top left · 1 top right · 2 bottom left · 3 bottom right),
+   Both figures: one quadrant per step in reading order (0 top left · 1 top right · 2 bottom left · 3 bottom right),
    Study 1 then Study 2 within each quadrant. */
 (function () {
   function build(mount, opts, key) {
@@ -11,9 +11,14 @@
     const colX = [(W / 2 - panW) / 2 - 10, W / 2 + (W / 2 - panW) / 2 + 10];
     const panelTop = r => (isK ? 36 : 0) + (r === 0 ? 0 : (isK ? 296 : 300));
     const rowLabelsMap = { 'Redistributed to people/firms': ['Redistributed to', 'people/firms'] };
-    D.panels.forEach((pn, pi) => {
-      const quadStep = pn.grid.row * 2 + pn.grid.col;
-      const gx = colX[pn.grid.col], gy = panelTop(pn.grid.row);
+    /* opts.drop: panel ids left out (combined deck: Q3 of Figure 2). The remaining panels step in reading
+       order; a row left with a single panel is centred. */
+    const drop = opts.drop || [];
+    const panels = D.panels.filter(pn => drop.indexOf(pn.id) < 0);
+    panels.forEach((pn, pi) => {
+      const quadStep = pi;
+      const alone = panels.filter(q => q.grid.row === pn.grid.row).length === 1;
+      const gx = alone ? (W - panW) / 2 : colX[pn.grid.col], gy = panelTop(pn.grid.row);
       const cx1 = gx + labW + 12, cx2 = cx1 + cellW + cellGap;
       const gL = el('g', null, s);
       el('text', { x: cx1 + cellW / 2, y: gy + 16, 'text-anchor': 'middle', 'font-size': 15, 'font-weight': 500, fill: C.study_header_text, text: 'Study 1' }, gL);
@@ -48,7 +53,7 @@
         });
       });
     });
-    return PSD.ctrl(st, 3);
+    return PSD.ctrl(st, panels.length - 1);
   }
   PSD.figures['co2-fig2'] = (m, o) => build(m, o, 'co2_fig2');
   PSD.figures['co2-fig3'] = (m, o) => build(m, o, 'co2_fig3');
