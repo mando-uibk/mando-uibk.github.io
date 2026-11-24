@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carbon pricing projects</title>
+<meta name="author" content="Armando Holzknecht">
+<meta name="description" content="Slides on two carbon-pricing projects, November 2026. Prepared with the help of AI; speaker notes are AI-generated. Licensed under CC BY 4.0.">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<link rel="stylesheet" href="lib/reset.css">
+<link rel="stylesheet" href="lib/reveal.css">
+<link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+  <!-- ============ TITLE ============ -->
+  <section data-no-chrome data-fig="title-deco">
+    <div class="title-slide">
+      <div class="title-deco figmount"></div>
+      <div class="t-logo"><img src="assets/logos/uibk.svg" alt="University of Innsbruck"></div>
+      <div class="title-main">
+        <h1>Carbon pricing projects</h1>
+        <div class="title-rule"></div>
+        <div class="title-sub">November 2026</div>
+        <div class="title-author">Armando Holzknecht</div>
+        <div class="title-inst">Department of Banking and Finance, University of Innsbruck</div>
+      </div>
+    </div>
+    <aside class="notes">
+      Two projects on public support for carbon pricing: a many-designs study with 55 behavioral interventions on real-world
+      support for carbon pricing in the U.S., and two preregistered studies on the Austrian Klimabonus, a salient carbon
+      dividend, before and after its abolition.
+    </aside>
+  </section>
+
+  <!-- ==================== PART 1 · MANYDESIGNSCARBON ==================== -->
+  <!-- Source: the ManyDesignsCarbon deck in I:\Projects\MDC\_Presentation\reveal (slide text kept, frame titles as names,
+       figures run unchanged through js/mdc-bridge.js) -->
+  <section id="p1" data-no-chrome>
+    <div class="section-slide p1">
+      <h1>Fifty-five Crowdsourced Designs Assessing Carbon Pricing Support in the U.S.</h1>
+      <div class="sec-authors">Armando Holzknecht<sup>*</sup>, Rene Schwaiger<sup>*</sup>, Esther Blanco, Jürgen Huber, Michael Kirchler, and 108 co-authors from 55 research teams</div>
+      <div class="sec-links">
+        <span>Nature Human Behaviour (forthcoming)</span><br>
+        <span>Pre-registration (OSF):</span> <a href="https://osf.io/ujvdn">osf.io/ujvdn</a><br>
+        <span>Interactive results and all 55 designs:</span> <a href="https://manydesignscarbon.online">manydesignscarbon.online</a>
+      </div>
+      <div class="secprog"><span></span></div>
+    </div>
+    <aside class="notes">
+      * Joint first authors. Five project coordinators, 108 co-authors across 55 research teams, University of Innsbruck.
+    </aside>
+  </section>
+
+  <!-- Motivation -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Effective carbon pricing, limited public support</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>A price on carbon is widely judged <b>effective and cost-efficient</b> <span class="cite">(Nordhaus 1992; Stechemesser et al. 2024)</span>, yet only <b>28%</b> of global emissions are priced, at ~<b>$19/t</b> against a social cost near <b>$120/t</b> <span class="cite">(World Bank 2025; EPA 2023)</span>.</li>
+          <li>Prior evidence on the <b>effectiveness of nudges</b> in altering behavior raises concerns about <b>publication bias</b> and <b>backfiring</b> effects <span class="cite">(DellaVigna &amp; Linos 2022; Maier et al. 2022; Mertens et al. 2022)</span>.</li>
+          <li>Most evidence focuses on <b>(pro-environmental) behavior</b> <span class="cite">(e.g., Allcott 2011; Tiefenbeck et al. 2019)</span>; support for <b>system-level policy</b>, measured with <b>real-world</b> outcomes, remains largely unexplored <span class="cite">(see Vlasceanu et al. 2024 and Dechezleprêtre et al. 2025 for stated support measures)</span>.</li>
+        </ul>
+        <div class="stmt fragment beamer" data-fragment-index="1" style="font-size:.74em">“What is the impact of behavioral interventions on <b>real-world support</b> for a price of carbon?”</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Many-designs approach -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>One question, many designs</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <p class="lead">Instead of <i>“one team, one design, one dataset,”</i> the whole field designs the same experiment, run all at once <span class="cite">(Huber et al. 2023)</span>.</p>
+        <ul class="blist">
+          <li><b>Diverse by design:</b> many teams, randomly drawn from a pool of applicants (economics, psychology, and the behavioral sciences broadly), each contribute an <b>independent RCT</b> answering the exact same research question.</li>
+          <li><b>Clean quantification of design heterogeneity</b> <span class="cite">(Holzmeister et al. 2024)</span>.</li>
+        </ul>
+        <div class="stmt fragment beamer" data-fragment-index="1">Each team designs an <b>intervention</b> and a <b>control</b> condition, and proposes an <b>observed real-world</b> outcome that measures support for carbon pricing.</div>
+        <div class="statrow fragment beamer" data-fragment-index="1">
+          <div class="stat"><span class="val">135</span><span class="lab">teams applied</span></div>
+          <div class="stat"><span class="val accent">55</span><span class="lab">designs run</span></div>
+          <div class="stat"><span class="val">19,558</span><span class="lab">US participants</span></div>
+          <div class="stat"><span class="val">110</span><span class="lab">conditions (55×2)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experimental protocol -->
+  <section data-fig="mdc-flow">
+    <div class="frame">
+      <div class="frametitle"><h2>Experimental protocol</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody"><div class="figwrap"><div class="figmount"></div></div></div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" style="display:none"></div>
+    <div class="fragment" data-figstep="5" style="display:none"></div>
+  </section>
+
+  <!-- Methodology -->
+  <section data-fig="mdc-method">
+    <div class="frame">
+      <div class="frametitle"><h2>Methodology: standardize, then meta-analyze</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody"><div class="figwrap"><div class="figmount"></div></div></div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" style="display:none"></div>
+  </section>
+
+  <!-- Figure 1 -->
+  <section data-fig="mdc-fig1">
+    <div class="frame">
+      <div class="frametitle"><h2>Intervention and outcome features</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody"><div class="figwrap"><div class="figmount"></div></div></div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" style="display:none"></div>
+    <div class="fragment" data-figstep="5" style="display:none"></div>
+    <div class="fragment" data-figstep="6" style="display:none"></div>
+  </section>
+
+  <!-- Figure 3 (forest) -->
+  <section data-fig="mdc-fig3">
+    <div class="frame">
+      <div class="frametitle"><h2>Expectations versus observed effects across 55 designs</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody bare" style="padding-bottom:32px"><div class="figwrap"><div class="figmount"></div></div></div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" style="display:none"></div>
+    <div class="fragment" data-figstep="5" style="display:none"></div>
+    <div class="fragment" data-figstep="6" style="display:none"></div>
+  </section>
+
+  <!-- Figure 2 -->
+  <section data-fig="mdc-fig2">
+    <div class="frame">
+      <div class="frametitle"><h2>Pooled effects</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody"><div class="figwrap"><div class="figmount"></div></div></div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+  </section>
+
+  <!-- Figure 4 -->
+  <section data-fig="mdc-fig4">
+    <div class="frame">
+      <div class="frametitle"><h2>Moderators of the effects</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody"><div class="figwrap"><div class="figmount"></div></div></div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" style="display:none"></div>
+  </section>
+
+  <!-- Implications -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Implications</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody top" style="padding-top:20px">
+        <div class="group">
+          <h3>What we find</h3>
+          <ul class="blist tight">
+            <li>Small but statistically significant meta-effects (Cohen's <i>d</i> ≈ <b>0.04–0.08</b>; 1.1–2.4 pp); at the study level most effects are <b>indistinguishable from zero</b>.</li>
+            <li>Teams themselves and their peers were systematically <b>overconfident</b> about the effects <span class="cite">(see e.g., Menkveld et al. 2023; König-Kersting et al. 2025)</span>.</li>
+          </ul>
+        </div>
+        <div class="group fragment beamer" data-fragment-index="1">
+          <h3>Why are effects smaller than reported in prior work?</h3>
+          <ul class="blist tight">
+            <li>Preferences on carbon pricing may be <b>rigid</b> and not easily moved <span class="cite">(Mildenberger et al. 2022; Dechezleprêtre et al. 2025)</span>.</li>
+            <li>Interventions may be <b>less effective for system-level policy</b> than for individual behaviour <span class="cite">(Bergquist et al. 2023; Sinclair et al. 2025)</span>.</li>
+            <li>Prior estimates are likely <b>inflated by publication bias</b>, which may also <b>anchor researchers' miscalibrated beliefs</b> <span class="cite">(Scheel et al. 2021; Borjas &amp; Breznau 2026)</span>.</li>
+          </ul>
+        </div>
+        <div class="stmt fragment beamer" data-fragment-index="2">Reporting only the significant studies would <b>inflate</b> the pooled estimate roughly <b>3.5-fold</b>: full-sample <i>d</i> = <b>0.063</b>, <i>d</i> = <b>0.22</b> if only “sig.” studies were reported (<i>k</i> = 12); stated support: 0.076 → 0.26.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitations -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Limitations</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>Some real-world proxies may carry <b>mechanical</b> features; conservatively excluding 7 still leaves a detectable effect (<i>d</i> = <b>0.049</b>, <i>k</i> = 48).</li>
+          <li>Inference rests on the <b>meta-effect</b>; individual studies are low-powered for effects this small.</li>
+          <li><b>55 of 135</b> teams were run, randomly selected to avoid selection bias.</li>
+          <li><b>US-only</b> sample; cross-cultural and cross-context generalization remains open.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Takeaway -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Takeaway</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <p class="takeaway">Behavioral interventions raise support for carbon pricing, but only <b>very modestly</b>, and, importantly, by <b>less than researchers expect</b>.</p>
+        <div class="stmt">The many-designs approach aggregates independent studies into one collectively and transparently reported estimate (alongside the non-negligible heterogeneity of on-par designs).</div>
+        <div class="qr-row">
+          <img src="assets/qr.svg" alt="QR code: manydesignscarbon.online">
+          <div class="qr-lab"><a href="https://manydesignscarbon.online">manydesignscarbon.online</a><br><span>Interactive results and all 55 designs.</span><br><span class="fund">Funded by the Austrian Science Fund (FWF), SFB F63 (10.55776/F63).</span></div>
+          <img class="fwf" src="assets/logos/fwf-new.svg" alt="Austrian Science Fund (FWF)" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Co-authors -->
+  <section data-fig="mdc-authors">
+    <div class="frame">
+      <div class="frametitle"><h2>55 research teams · 108 co-authors</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody bare" style="padding-bottom:32px"><div class="figwrap"><div class="figmount"></div></div></div>
+    </div>
+  </section>
+
+  <!-- ==================== PART 2 · SALIENT CARBON DIVIDENDS ==================== -->
+  <!-- Source: Schwaiger, Benda, Blanco, Holzknecht, Huber & Kirchler (slides and notes verbatim from the earlier deck) -->
+  <section id="p2" data-no-chrome>
+    <div class="section-slide p2">
+      <h1>Salient carbon dividends are not enough to generate widespread support for carbon pricing</h1>
+      <div class="sec-authors">Rene Schwaiger, Julian Benda, Esther Blanco, Armando Holzknecht, Juergen Huber, Michael Kirchler</div>
+      <div class="sec-links">
+        <span>Preregistration Study 1:</span> <a href="https://doi.org/10.17605/OSF.IO/ZFVKE">doi.org/10.17605/OSF.IO/ZFVKE</a><br>
+        <span>Preregistration Study 2:</span> <a href="https://doi.org/10.17605/OSF.IO/BN82W">doi.org/10.17605/OSF.IO/BN82W</a><br>
+        <span>OSF project:</span> <a href="https://osf.io/zv4p5/">osf.io/zv4p5</a>
+      </div>
+      <div class="secprog"><span></span></div>
+    </div>
+  </section>
+
+  <!-- 4 · Motivation -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Carbon pricing and revenue recycling</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>Building public support for carbon pricing is widely recognized as one of the central challenges of current climate policy.</li>
+          <li>Expected financial costs, distributional fairness concerns, and distrust in how revenues are used are central determinants of support <span class="cite">(Dechezleprêtre et al., 2025)</span>.</li>
+          <li class="fragment beamer" data-fragment-index="1">Revenue recycling through carbon dividends, that is, returning carbon tax proceeds to citizens, has been proposed to increase acceptability.</li>
+          <li class="fragment beamer" data-fragment-index="2">Canada and Switzerland <span class="cite">(Mildenberger et al., 2022)</span>: low public awareness of the dividend, substantial underestimation of dividend amounts, only modest effects of individualized information on support.
+            <ul class="blist"><li>Attributed mostly to the low salience of the payment mechanism: rebates embedded in income tax returns (Canada) or deducted from health insurance premiums (Switzerland).</li></ul>
+          </li>
+          <li class="fragment beamer" data-fragment-index="3">Whether a more visible dividend design would produce different patterns of awareness and support remains open.</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      Mildenberger et al. analyzed the only two countries with implemented carbon tax dividend programs at the time.
+      They attribute the low awareness and limited support mostly to the low salience of the payment mechanism.
+      Our question: would a more visible dividend produce different patterns? Austria provides exactly that setting.
+    </aside>
+  </section>
+
+  <!-- 5 · Klimabonus -->
+  <section data-fig="co2-timeline">
+    <div class="frame">
+      <div class="frametitle"><h2>The Austrian Klimabonus</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody top" style="padding-top:18px;padding-bottom:34px">
+        <ul class="blist tight" style="flex:0 0 auto">
+          <li style="font-size:.7em">Introduced alongside Austria’s CO<sub>2</sub> pricing reform in October 2022: an annual lump-sum transfer to every resident over three consecutive years (2022–2024).</li>
+          <li style="font-size:.7em">Prominently communicated through a nationwide government campaign; paid out automatically to bank accounts or by post as a physical voucher.</li>
+          <li style="font-size:.7em">2024: €145 per adult in well-connected urban municipalities to €290 in the most rural areas; children under 18 received half the adult amount.</li>
+          <li class="fragment beamer" data-fragment-index="1" style="font-size:.7em">Abolished from 2025 onward, officially attributed to fiscal reasons, while the carbon tax remained in place.</li>
+        </ul>
+        <div class="figwrap" style="margin-top:6px"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" data-fragment-index="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" data-fragment-index="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" data-fragment-index="3" style="display:none"></div>
+    <aside class="notes">
+      The carbon price started at 30 euro per tonne, rose to 32.50 in 2023, 45 in 2024 and 55 in 2025; it stays fixed at 55
+      until 2028, when pricing moves to the EU-ETS II. The Klimabonus combined a universal base amount with a regional
+      top-up inversely related to public transport access. A family of two adults and two children received 435 euro in
+      Vienna and up to 870 euro in the most rural areas. First click: the abolition; then Study 1 and Study 2, one click each. Study 1, shortly after the third
+      payment, identifies the effect of information on support; Study 2, after the abolition, measures knowledge and
+      support again with the Study 1 baseline protocol.
+    </aside>
+  </section>
+
+  <!-- 6 · Design -->
+  <section data-fig="co2-design">
+    <div class="frame">
+      <div class="frametitle"><h2>Two preregistered studies</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody" style="padding-top:14px;padding-bottom:36px">
+        <div class="figwrap"><div class="figmount"></div></div>
+        <div class="stmt p1 fragment beamer" data-fragment-index="6" style="flex:0 0 auto;margin-top:8px">Both studies were preregistered, and sample sizes were based on power calculations.</div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" data-fragment-index="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" data-fragment-index="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" data-fragment-index="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" data-fragment-index="4" style="display:none"></div>
+    <div class="fragment" data-figstep="5" data-fragment-index="5" style="display:none"></div>
+    <aside class="notes">
+      Both samples are representative of the Austrian adult population (quotas for age, gender, federal state and education).
+      Study 1, November 2024, shortly after the third Klimabonus payment: a three-arm randomized survey experiment,
+      recruited by Bilendi &amp; Respondi. Clicks two to four show the verbatim information screens of each condition (Baseline, Tax, Tax + KB; the screens build on each other); the information
+      was conveyed in plain language with info-graphics, and after each knowledge question all participants received a
+      brief clarification of the correct answer. The information treatments identify the effect of information about the
+      tax and the dividend, not the direct effect of receiving the dividend. Study 2, March 2026, after the abolition,
+      follows the Study 1 baseline protocol; sample recruited by Norstat. Power: Study 1 target of 1,600 gave 80% power for d or h = 0.22;
+      Study 2 planned about 1,200 gave about 75% power for a point-biserial correlation of 0.10 (about d = 0.20); both at alpha = 0.005.
+      Preregistrations: OSF ZFVKE (Study 1) and BN82W (Study 2 addendum).
+    </aside>
+  </section>
+
+  <!-- 7 · Outcomes -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Outcome measures</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody top" style="padding-top:20px">
+        <div class="group">
+          <h3>Real-world behavioral proxies</h3>
+          <ul class="blist">
+            <li><b>Donation:</b> allocate between €0 and €200 of a potential €200 lottery prize to ForTomorrow, an organization that retires allowances from the EU Emissions Trading System.</li>
+            <li><b>Letter:</b> sign a letter to the Austrian Federal Ministry advocating an increase in the carbon price to its estimated social cost of €110 per tonne.</li>
+          </ul>
+        </div>
+        <div class="group fragment beamer" data-fragment-index="1">
+          <h3>Stated support and perceptions</h3>
+          <ul class="blist">
+            <li><b>Stated support</b> for the carbon tax in place, for the announced increase from €45 to €55, and for raising the price to €110 per tonne, each on a five-point scale from strong opposition to strong support (coded 1 to 5).</li>
+            <li><b>Perceptions:</b> effectiveness, fairness, burden on low-income households, and the effect on one’s own household.</li>
+          </ul>
+        </div>
+        <div class="group fragment beamer" data-fragment-index="2">
+          <h3>Policy knowledge</h3>
+          <ul class="blist">
+            <li><b>Study 1:</b> whether a carbon tax exists, how its revenue is used, and how the Klimabonus is paid (knowledge index, 0 to 3).</li>
+            <li><b>Study 2:</b> whether the tax remained in place, whether its revenue now enters the general government budget, and whether respondents received a Klimabonus in 2025 or expect one in 2026.</li>
+          </ul>
+        </div>
+        <div class="stmt p1 fragment beamer" data-fragment-index="3" style="margin-top:10px">The registered two-sided significance threshold of α = 0.005 is used throughout. The threshold 0.005 ≤ <i>P</i> &lt; 0.05 is considered as suggestive and <i>P</i> ≥ 0.05 as not statistically significant.</div>
+      </div>
+    </div>
+    <aside class="notes">
+      Ten respondents were selected as lottery winners and their chosen donations were implemented. A signature counts only
+      if the provider verified the submitted name. The support items follow Mildenberger et al.; the perception items follow
+      Dechezleprêtre et al. Scale labels in the German survey: "Stark dagegen" to "Stark dafür" (planned increase),
+      "Lehne stark ab" to "Unterstütze stark" (110 euro). The target of 1,600 respondents provided 80% power to detect a
+      pairwise standardized difference of 0.22 at alpha = 0.005.
+    </aside>
+  </section>
+
+  <!-- 8 · Fig 1 -->
+  <section data-fig="co2-fig1">
+    <div class="frame">
+      <div class="frametitle"><h2>Support for the carbon tax</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <aside class="notes">
+      Means or proportions with 95% confidence intervals, Study 1 Baseline (n = 503) and Study 2 (n = 1,105); solid bars
+      Study 1, striped bars Study 2. Bar lengths should not be compared across outcome types.
+      Study 1 Baseline: residents donated an average of 26.5 EUR and 22.1% signed the policy support letter; mean stated
+      support 2.62 for the carbon tax in place and 2.21 for increasing the tax to the social cost of carbon (110 euro per
+      tonne, about 120 USD, as suggested by the EPA). In an exploratory within-person comparison, support was higher for the
+      more humble planned increase to 55 euro (2.45) than for the social-cost increase (paired difference 0.241,
+      P &lt; 0.0001); 27.0% versus 20.7% rather or strongly in support.
+      After the abolition (Study 2): donations 26.52 vs 26.54 EUR, letter signing 18.8% vs 22.1%, support for the tax in
+      place 2.71 vs 2.62. The only cross-study difference reaching P &lt; 0.005 concerned support for the social-cost increase
+      (2.40 vs 2.21; uncontrolled standardized difference 0.174, P = 0.0026; controlled 0.148, P = 0.00086).
+      Support for reinstating the Klimabonus: 3.69, about one point higher than any other stated-support measure;
+      60.2% (631 of 1,048) rather or strongly support reinstatement. The samples were independently recruited;
+      differences between them are descriptive, not causal effects of the policy change.
+    </aside>
+  </section>
+
+  <!-- 9 · Fig 2 -->
+  <section data-fig="co2-fig2">
+    <div class="frame">
+      <div class="frametitle"><h2>Policy knowledge</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <aside class="notes">
+      One quadrant per click. Complete response distributions; dark outlines mark the response coded as correct in each
+      study, which differs for revenue use because the Klimabonus was abolished. After each question, participants received
+      a brief clarification of the correct answer.
+      Baseline: 72.6% knew that Austria levied a carbon tax, so about 1 in 4 residents did not know they had been paying a
+      carbon tax in place since 2022. Only 13.9% correctly identified the use of its revenues to be a dividend. After being
+      told that revenues fund the dividend, 33.9% identified the payment channel (additional Study 1 question).
+      Early 2026: 71.4% knew the tax existed; 33.6% correctly identified the general government budget; 59.4% correctly
+      reported no Klimabonus in 2025 while 25.2% believed they had received one; 56.9% correctly expected none in 2026.
+    </aside>
+  </section>
+
+  <!-- 10 · Fig 3 -->
+  <section data-fig="co2-fig3">
+    <div class="frame">
+      <div class="frametitle"><h2>Perceptions of the carbon-pricing policy</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <aside class="notes">
+      One quadrant per click. Study 1: 32.4% strongly disagreed with the carbon tax being effective and 35.0% strongly disagreed with it being fair;
+      68.4% rather or strongly agreed that the tax placed disproportionate burden on low-income households; own household:
+      44.5% no perceived effect, 49.7% clearly or moderately worse off, 5.8% moderately or clearly better off.
+      Study 2: the most frequent effectiveness response is neither (31.6%); strong disagreement is the most frequent fairness
+      response (30.0%); 67.7% agree the tax burdens low-income households. None of the cross-study differences in
+      perceptions reached P &lt; 0.05.
+    </aside>
+  </section>
+
+  <!-- 11 · Fig 4 -->
+  <section data-fig="co2-fig4">
+    <div class="frame">
+      <div class="frametitle"><h2>Effects of information on support, knowledge and perceptions</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <aside class="notes">
+      Fully covariate controlled models: 30 common covariates plus regional Klimabonus-group fixed effects (n = 1,310 to
+      1,312). Thick lines 95% CIs, thin lines 99.5% CIs matching alpha = 0.005; circles Tax, diamonds Tax + KB.
+      Neither information treatment affected any support outcome at the prespecified threshold of alpha = 0.005.
+      Controlled models give suggestive evidence of small increases in support for the tax in place and the planned
+      increase (0.101 to 0.130 SD), and tax-only information suggestively reduced letter signing (h = -0.130, P = 0.037);
+      no univariate contrast reached P &lt; 0.05.
+      Exploratory item-level analysis: Tax + KB increased correct identification of how the dividend was paid, by bank
+      transfer or postal voucher (h = 0.206, P = 0.0018), but did not produce a broader improvement in policy knowledge.
+      Mediation: all absolute estimated indirect effects via knowledge were below 0.011 standard deviations.
+      The treatments have features that could be interpreted as a best case for communication interventions.
+    </aside>
+  </section>
+
+  <!-- 12 · Fig 5 part 1 -->
+  <section data-fig="co2-fig5" data-fig-opts='{"part":1}'>
+    <div class="frame">
+      <div class="frametitle"><h2>Correlates of carbon-pricing support</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      Exploratory pooled associations with support in Study 1 and Study 2 (Study 1 Baseline plus Study 2). Continuous
+      variables over one SD, binary variables between categories; effects standardized. Dark-green knowledge rows: pooled
+      models with both knowledge measures; lighter green: separate Study 1 and Study 2 models. One star 0.005 &lt;= P &lt; 0.05,
+      two stars P &lt; 0.005.
+      No significant association of correct knowledge with either real-world measure of support. While the dividend was in
+      place, correctly identifying the dividend was suggestively positively associated with stated support (0.249 and 0.250
+      outcome SD); after its abolition, knowing that revenue goes to the general budget was suggestively negatively associated
+      with stated support (-0.154 and -0.115 SD). Being more right-wing: negatively associated with stated support at
+      P &lt; 0.005, suggestively with donations and letter signing. Government trust: positive with both stated-support
+      outcomes (P &lt; 0.0001) and suggestively with donations.
+    </aside>
+  </section>
+
+  <!-- 13 · Fig 5 part 2 -->
+  <section data-fig="co2-fig5" data-fig-opts='{"part":2}'>
+    <div class="frame">
+      <div class="frametitle"><h2>Correlates of carbon-pricing support</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="figwrap"><div class="figmount"></div></div>
+      </div>
+    </div>
+    <aside class="notes">
+      Willingness to drive less was positively associated with all four outcomes (standardized associations 0.099 to 0.181;
+      all P &lt; 0.005). Willingness to buy an electric vehicle and belief that climate change is human-caused: positive for
+      both stated-support outcomes, suggestive for one real-world measure. Most climate-risk perceptions, current consumption
+      habits, and other stated mitigation intentions showed no consistent significant associations. Direct comparisons
+      showed no significant difference in association strength between willingness to drive less and political orientation
+      (all P &gt;= 0.061). Among risk perceptions only drought and heat risk was associated with support, and only for the
+      tax in place (0.108 SD, P = 0.00076).
+    </aside>
+  </section>
+
+  <!-- 14 · Discussion P1 -->
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Discussion</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <ul class="blist">
+          <li>Support for the carbon tax was low while the dividend was in place and remained low after its removal; knowledge of the dividend was severely limited throughout, despite its design elements that foster visibility.</li>
+          <li class="fragment beamer" data-fragment-index="1">Information campaigns to the general public may have limited potential to foster support for carbon pricing.</li>
+          <li class="fragment beamer" data-fragment-index="2">Willingness to drive less and political views are stronger predictors of support for carbon pricing than knowledge about the carbon tax or dividend.</li>
+          <li class="fragment beamer" data-fragment-index="3">The constraints on carbon tax support are not specific to low-salience dividends but appear to reflect a more fundamental opposition to carbon pricing.</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      Caveat: the knowledge measures capture awareness of the fiscal link between tax and payment, not recall of having received
+      the Klimabonus. But the treatments were designed to close precisely this gap and made clear that most citizens would be
+      net beneficiaries; even then support did not meaningfully increase. Modifying support for climate policies may be harder
+      than modifying individual mitigation choices. Open question: what, if anything, can build durable support.
+    </aside>
+  </section>
+
+  <!-- ==================== CLOSING ==================== -->
+  <section data-no-chrome>
+    <div class="standout-slide">
+      <h1>Thank you</h1>
+      <div class="so-sub">armando.holzknecht@uibk.ac.at</div>
+      <div class="so-lic">Slides licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · prepared with the help of AI (Claude, Anthropic)</div>
+    </div>
+  </section>
+
+  <!-- Backup: ManyDesignsCarbon robustness -->
+  <section data-fig="mdc-robustness">
+    <div class="frame">
+      <div class="frametitle"><h2>Robustness</h2><span class="ft-tag">Backup</span><div class="ftprog"><span></span></div></div>
+      <div class="framebody bare" style="padding-bottom:32px"><div class="figwrap"><div class="figmount"></div></div></div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" style="display:none"></div>
+    <div class="fragment" data-figstep="5" style="display:none"></div>
+    <div class="fragment" data-figstep="6" style="display:none"></div>
+    <aside class="notes">
+      Multiverse: two pre-registered forks give 32 specifications per design. Ridge: each design's Cohen's d across all
+      specifications (Figure S8). Specification curve: effect, heterogeneity and choices per specification (Figure S7).
+      GOSH: meta-analyses of a million random subsets of the designs; the pooled effect versus heterogeneity stays a tight
+      cloud. Leave-one-out: omitting any single design barely moves the estimate.
+    </aside>
+  </section>
+
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>References</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody top">
+        <div class="refs-grid" id="refsMount"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>References</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody top">
+        <div class="refs-grid" id="refsMount2"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="frame">
+      <div class="frametitle"><h2>Disclaimer</h2><div class="ftprog"><span></span></div></div>
+      <div class="framebody">
+        <div class="stmt" style="font-size:.8em">
+          <p>This presentation was prepared with the help of AI: Claude (Anthropic) wrote the HTML, CSS and JavaScript, laid out the slides and redrew the figures from the papers’ data and published figures. The slide text follows the wording of the underlying manuscripts; the speaker notes are AI-generated and may contain errors.</p>
+          <p style="margin-top:.7em">The publications and preregistrations are authoritative: where the slides or notes differ from them, the publications prevail, and the papers, not the slides, should be cited. The author is responsible for the content.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div><!-- /.slides -->
+  <div class="deck-header"></div>
+  <div class="deck-footer">
+    <span class="ft-title">Armando Holzknecht · Carbon pricing projects</span>
+    <span class="ft-page"></span>
+  </div>
+</div><!-- /.reveal -->
+
+<script src="js/core.js"></script>
+<script src="js/data.js"></script>
+<script src="js/mdc-core.js"></script>
+<script src="js/mdc-data.js"></script>
+<script src="js/figures/deco.js"></script>
+<script src="js/figures/co2_policy.js"></script>
+<script src="js/figures/co2_fig1.js"></script>
+<script src="js/figures/co2_heat.js"></script>
+<script src="js/figures/co2_fig4.js"></script>
+<script src="js/figures/co2_fig5.js"></script>
+<script src="js/figures/mdc/flow.js"></script>
+<script src="js/figures/mdc/method.js"></script>
+<script src="js/figures/mdc/fig1.js"></script>
+<script src="js/figures/mdc/fig3.js"></script>
+<script src="js/figures/mdc/fig2.js"></script>
+<script src="js/figures/mdc/fig4.js"></script>
+<script src="js/figures/mdc/figS8.js"></script>
+<script src="js/figures/mdc/robustness.js"></script>
+<script src="js/figures/mdc/authors.js"></script>
+<script src="js/mdc-bridge.js"></script>
+<script src="lib/reveal.js"></script>
+<script src="lib/plugin/notes/notes.js"></script>
+<script>
+  var DECK_TITLE = 'Armando Holzknecht · Carbon pricing projects';
+  var SNAP = /snapshot=1/.test(location.search);
+  var QA = (location.search.match(/qa=(\d+)/) || [])[1];
+  if (QA != null) PSD.qaStatic = true;
+  var deck = new Reveal({
+    width:1280, height:720, margin:0, minScale:0.2, maxScale:2.0,
+    hash:true, slideNumber:false, controls:true, progress:false,
+    transition: QA != null ? 'none' : 'slide', transitionSpeed:'default', backgroundTransition:'fade',
+    pdfSeparateFragments:false, pdfMaxPagesPerSlide:1, scrollActivationWidth:null,
+    plugins:[ RevealNotes ]
+  });
+  window.deck = deck;
+  PSD.initDriver(deck);
+
+  function startDeck(){
+    PSD.prepareFragments();
+    deck.initialize().then(function(){
+      populateRefs();
+      if (SNAP) { buildSnapshot(); return; }
+      initChrome();
+      if (QA != null) {
+        document.documentElement.classList.add('qa-static');
+        deck.slide(+QA, 0, 99);
+        deck.layout();
+      }
+    });
+  }
+  if (document.fonts && document.fonts.load) {
+    Promise.all([
+      document.fonts.load('300 16px "Fira Sans"'),
+      document.fonts.load('400 16px "Fira Sans"'),
+      document.fonts.load('500 16px "Fira Sans"'),
+      document.fonts.load('600 16px "Fira Sans"'),
+      document.fonts.load('700 16px "Fira Sans"'),
+      document.fonts.load('italic 400 16px "Fira Sans"')
+    ]).then(startDeck, startDeck);
+  } else { startDeck(); }
+
+  function initChrome(){
+    var secs = document.querySelectorAll('.reveal > .slides > section');
+    var total = secs.length;
+    var ff = document.querySelector('.reveal > .deck-footer');
+    var hh = document.querySelector('.reveal > .deck-header');
+    function sizeFooter(){
+      var scale = (deck.getScale && deck.getScale()) || 1;
+      var hoff = Math.max(0, (window.innerWidth - 1280 * scale) / 2);
+      ff.style.height = (30 * scale) + 'px';
+      ff.style.paddingLeft = (hoff + 56 * scale) + 'px';
+      ff.style.paddingRight = (hoff + 56 * scale) + 'px';
+      ff.style.fontSize = (13 * scale) + 'px';
+      var voff = Math.max(0, (window.innerHeight - 720 * scale) / 2);
+      hh.style.height = (voff + 1) + 'px';
+    }
+    function update(){
+      var cur = deck.getCurrentSlide ? deck.getCurrentSlide() : null;
+      if (!cur) return;
+      var idx = Array.prototype.indexOf.call(secs, cur);
+      var frac = total > 1 ? (idx / (total - 1)) : 0;
+      document.querySelectorAll('.ftprog > span, .secprog > span').forEach(function(sp){ sp.style.width = (frac * 100) + '%'; });
+      if (cur.hasAttribute('data-no-chrome')) { ff.classList.remove('show'); hh.classList.remove('show'); return; }
+      ff.querySelector('.ft-page').textContent = (idx + 1) + ' / ' + total;
+      ff.classList.add('show'); hh.classList.add('show'); sizeFooter();
+    }
+    deck.on('slidechanged', update);
+    deck.on('resize', function(){ sizeFooter(); });
+    window.addEventListener('resize', sizeFooter);
+    update();
+  }
+
+  function buildSnapshot(){
+    var secs = document.querySelectorAll('.reveal > .slides > section');
+    var total = secs.length;
+    document.documentElement.classList.add('qa-static', 'psd-snapshot', 'print-pdf');
+    PSD.buildAll();
+    secs.forEach(function(sec, idx){
+      sec.querySelectorAll('.fragment').forEach(function(f){ f.classList.add('visible'); });
+      sec.style.display = 'block'; sec.style.top = '0px'; sec.style.left = '0px';
+      sec.style.transform = 'none'; sec.style.opacity = '1'; sec.style.visibility = 'visible';
+      var frac = total > 1 ? (idx / (total - 1)) : 0;
+      sec.querySelectorAll('.ftprog > span, .secprog > span').forEach(function(sp){ sp.style.width = (frac * 100) + '%'; });
+      if (idx > 0 && !sec.hasAttribute('data-no-chrome') && !sec.querySelector('.print-footer')) {
+        var f = document.createElement('div');
+        f.className = 'print-footer';
+        f.innerHTML = '<span>' + DECK_TITLE + '</span><span class="pf-page">' + (idx + 1) + ' / ' + total + '</span>';
+        (sec.querySelector('.frame') || sec).appendChild(f);
+      }
+      sec.querySelectorAll('.figwrap, .figwrap .figmount').forEach(function(el){
+        var h = el.getBoundingClientRect().height;
+        if (h > 0) { el.style.flex = '0 0 auto'; el.style.height = h + 'px'; el.style.minHeight = '0'; }
+      });
+      sec.querySelectorAll('.figwrap .figmount > svg').forEach(function(svg){
+        var r = svg.getBoundingClientRect();
+        if (r.height > 0) { svg.style.width = r.width + 'px'; svg.style.height = r.height + 'px'; }
+      });
+    });
+    var sl = document.querySelector('.reveal .slides');
+    if (sl) { sl.style.transform = 'none'; sl.style.left = 'auto'; sl.style.top = 'auto'; }
+    document.documentElement.setAttribute('data-snapshot-ready', String(total));
+  }
+  /* References: the ManyDesignsCarbon list (MDC.references), which also holds the two works cited
+     in Part 2 (Dechezleprêtre et al. 2025; Mildenberger et al. 2022). */
+  function populateRefs(){
+    var m = document.getElementById('refsMount'), m2 = document.getElementById('refsMount2');
+    if (!m || !window.MDC || !MDC.references || m.childElementCount) return;
+    var items = MDC.references.slice().sort(function(a, b){
+      return a.key.toLowerCase().localeCompare(b.key.toLowerCase());
+    }).map(function(r){ return r.full; });
+    var half = Math.ceil(items.length / 2);
+    items.forEach(function(full, i){
+      var d = document.createElement('div'); d.className = 'ref';
+      d.innerHTML = '<span class="rn">' + (i + 1) + '</span><span>' + full + '</span>';
+      (i < half ? m : m2).appendChild(d);
+    });
+  }
+</script>
+</body>
+</html>
